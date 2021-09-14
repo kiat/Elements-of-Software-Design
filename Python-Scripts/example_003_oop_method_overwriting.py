@@ -15,9 +15,6 @@ class Driver:
 
 
 
-
-
-
 class Student:
 
     def __init__(self, name, courses):
@@ -43,7 +40,7 @@ class StudentDriver(Driver, Student):
         return "I am " + self.name + " with numer of courses " + str(self.courses) + " , and with salary of " + str(self.salary)
 
     def work_per_day(self):
-        return self.salary/(30*15) + self.courses * 2
+        return super().work_per_day(15) + super().work_per_day(self)
 
 
 
