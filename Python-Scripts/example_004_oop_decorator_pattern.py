@@ -14,9 +14,9 @@ class HashTag:
         """This function represents a text rending in html format."""
         return self._text
 
-    def len(self):
-        """Just in case if we want to know the lenght."""
-        return len(self._text)
+    # def len(self):
+    #     """Just in case if we want to know the lenght."""
+    #     return len(self._text)
 
 
 class BoldWrapper(HashTag):
