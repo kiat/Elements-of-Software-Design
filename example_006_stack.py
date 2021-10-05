@@ -8,7 +8,6 @@ class Stack (object):
 
   # remove an item from the top of the stack
   def pop (self):
-
     if(not self.isEmpty()):
       return self.stack.pop()
     else:
