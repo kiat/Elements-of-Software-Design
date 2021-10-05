@@ -23,7 +23,7 @@ class Queue(object):
     return str(self.queue)
 
 
-################################
+###############################
 #                             #
 #   Example run of a Queue    #
 #                             #

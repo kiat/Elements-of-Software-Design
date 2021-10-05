@@ -54,7 +54,13 @@ class Stack (object):
 
 
 
-# Example run of a stack 
+
+
+###############################
+#                             #
+#   Example run of a stack    #
+#                             #
+###############################
 
 my_stack = Stack()
 
