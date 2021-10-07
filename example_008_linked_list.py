@@ -16,7 +16,7 @@ class LinkedList(object):
 
   def insertFirst (self, data):
     '''inset data at begining of a linked list'''
-    newLink = Link (data)
+    newLink = Link(data)
     newLink.next = self.first
     self.first = newLink
 
