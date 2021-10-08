@@ -5,16 +5,15 @@ class Node(object):
         self.lChild = None
         self.rChild = None
 
-    
     def print_node(self, level=0):
         
-        if self.lChild != None:
-            print_node(self.lChild, level + 1)
+        if self.rChild != None:
+            self.rChild.print_node(level + 1)
         
         print(' ' * 4 * level + '->',  self.data)
         
-        if self.rChild != None:
-            print_node(self.rChild, level + 1)
+        if self.lChild != None:
+            self.lChild.print_node(level + 1)
 
 
 
@@ -25,7 +24,8 @@ class BST(object):
         self.root = None
     
     def print(self, level):
-        self.root.print_node(level)
+        if not self.root == None:
+            self.root.print_node(level)
 
     # Search for a node with the key
     def search(self, key):
@@ -54,30 +54,30 @@ class BST(object):
                 else:
                     current = current.rChild
 
-                if (val < parent.data):
+            if (val < parent.data):
                     parent.lChild = newNode
-                else:
+            else:
                     parent.rChild = newNode
 
     # In order traversal - left, center, right
     def inOrder(self, aNode):
         if (aNode != None):
-            inOrder (aNode.lChild)
+            self.inOrder (aNode.lChild)
             print(aNode.data)
-            inOrder (aNode.rChild)
+            self.inOrder (aNode.rChild)
 
     # Pre order traversal - center, left, right
     def preOrder(self, aNode):
         if (aNode != None):
             print(aNode.data)
-            preOrder(aNode.lChild)
-            preOrder(aNode.rChild)
+            self.preOrder(aNode.lChild)
+            self.preOrder(aNode.rChild)
 
     # Post order traversal - left, right, center
     def postOrder(self, aNode):
         if (aNode != None):
-            postOrder (aNode.lChild)
-            postOrder (aNode.rChild)
+            self.postOrder (aNode.lChild)
+            self.postOrder (aNode.rChild)
             print(aNode.data)
 
     # Find the node with the smallest value
@@ -157,25 +157,23 @@ class BST(object):
 
             while (successor.lChild != None):
                 successorParent = successor
+                successor = successor.lChild
 
-        successor = successor.lChild
+            # Successor node right child of delete node
+            if(deleteNode == self.root):
+                self.root = successor
+            elif (isLeft):
+                parent.lChild = successor
+            else:
+                parent.rChild = successor
 
-        # Successor node right child of delete node
-        if(deleteNode == self.root):
-            self.root = successor
-        elif (isLeft):
-            parent.lChild = successor
-        else:
-            parent.rChild = successor
+            # Connect delete node's left child to be successor's left child
+            successor.lChild = deleteNode.lChild
 
-        # Connect delete node's left child to be successor's left child
-        successor.lChild = deleteNode.lChild
-
-        # Successor node left descendant of delete node
-        if(successor != deleteNode.rChild):
-            successorParent.lChild = successor.rChild
-
-        successor.rChild = deleteNode.rChild
+            # Successor node left descendant of delete node
+            if(successor != deleteNode.rChild):
+                successorParent.lChild = successor.rChild
+                successor.rChild = deleteNode.rChild
 
         return True
     
@@ -189,16 +187,76 @@ class BST(object):
 #                             #
 ###############################
 
+def main():
 
-# bst = BST()
+    bst = BST()
 
-# bst.insert(10)
-# bst.insert(20)
-# bst.insert(30)
+    bst.insert(10)
+    bst.insert(20)
+    bst.insert(30)
+    bst.insert(5)
+    bst.insert(12)
+    bst.insert(4)
+    bst.insert(7)
+    bst.insert(18)
+    
+    bst.print(2)
+    
+    print("In-order traversal:")
+    bst.inOrder(bst.root)
+    print("Post-order traversal")
+    bst.postOrder(bst.root)
+    print("Pre-order traversal")
+    bst.preOrder(bst.root)
 
-# bst.print(2)
+    # test deleting a node with two children and whose successor
+    # had a right child 
+    bst.delete(10)
+    bst.print(2)
 
+    print()
+    print()
 
+    # delete a leaf node (no children)
+    bst.delete(4)
+    bst.print(2)
 
+    print()
+    print()
+    
+    # delete a node with only a right child
+    bst.delete(5)
+    bst.print(2)
 
+    print()
+    print()
+    
+    bst.delete(30)
+    bst.print(2)
+
+    print()
+    print()
+    
+    # test deleting a non-existing object
+    bst.delete(5)
+    bst.print(2)
+
+    print()
+    print()
+    # delete a node with only a left child
+    bst.delete(20)
+    bst.print(2)
+
+    print()
+    print()
+    # delete all nodes and try one extra delete
+    bst.delete(12)
+    bst.delete(18)
+    bst.delete(7)
+    bst.delete(7)
+    bst.print(2)
+    
+
+if __name__ == "__main__":
+    main()
 
