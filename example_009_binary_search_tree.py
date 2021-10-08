@@ -5,16 +5,16 @@ class Node(object):
         self.lChild = None
         self.rChild = None
 
-    
-    def print_node(self, level=0):
-        
-        if self.lChild != None:
-            print_node(self.lChild, level + 1)
-        
-        print(' ' * 4 * level + '->',  self.data)
-        
-        if self.rChild != None:
-            print_node(self.rChild, level + 1)
+
+    def print_node(self, node, level=0):
+
+        if node.lChild != None:
+            node.print_node(node.lChild, level + 1)
+
+        print(' ' * 4 * level + '->',  node.data)
+
+        if node.rChild != None:
+            node.print_node(node.rChild, level +1)
 
 
 
@@ -23,9 +23,9 @@ class BST(object):
 
     def __init__ (self):
         self.root = None
-    
+
     def print(self, level):
-        self.root.print_node(level)
+        self.root.print_node(self.root, level)
 
     # Search for a node with the key
     def search(self, key):
@@ -40,44 +40,44 @@ class BST(object):
     # Insert a node in the tree
     def insert(self, val):
         newNode = Node(val)
-        
+
         if (self.root == None):
             self.root = newNode
         else:
-            current = self.root
+            current = None
             parent = self.root
-        
-            while (current != None):
-                parent = current
-                if (val < current.data):
-                    current = current.lChild
-                else:
-                    current = current.rChild
 
+            while (parent != None):
+                current = parent
                 if (val < parent.data):
-                    parent.lChild = newNode
+                    parent = parent.lChild
                 else:
-                    parent.rChild = newNode
+                    parent = parent.rChild
+
+            if (val < current.data):
+                current.lChild = newNode
+            else:
+                current.rChild = newNode
 
     # In order traversal - left, center, right
     def inOrder(self, aNode):
         if (aNode != None):
-            inOrder (aNode.lChild)
+            self.inOrder(aNode.lChild)
             print(aNode.data)
-            inOrder (aNode.rChild)
+            self.inOrder(aNode.rChild)
 
     # Pre order traversal - center, left, right
     def preOrder(self, aNode):
         if (aNode != None):
             print(aNode.data)
-            preOrder(aNode.lChild)
-            preOrder(aNode.rChild)
+            self.preOrder(aNode.lChild)
+            self.preOrder(aNode.rChild)
 
     # Post order traversal - left, right, center
     def postOrder(self, aNode):
         if (aNode != None):
-            postOrder (aNode.lChild)
-            postOrder (aNode.rChild)
+            self.postOrder(aNode.lChild)
+            self.postOrder(aNode.rChild)
             print(aNode.data)
 
     # Find the node with the smallest value
@@ -117,7 +117,7 @@ class BST(object):
             else:
                 deleteNode = deleteNode.rChild
                 isLeft = False
-            
+
         # If node not found
         if (deleteNode == None):
             return False
@@ -158,27 +158,27 @@ class BST(object):
             while (successor.lChild != None):
                 successorParent = successor
 
-        successor = successor.lChild
+            successor = successor.lChild
 
-        # Successor node right child of delete node
-        if(deleteNode == self.root):
-            self.root = successor
-        elif (isLeft):
-            parent.lChild = successor
-        else:
-            parent.rChild = successor
+            # Successor node right child of delete node
+            if(deleteNode == self.root):
+                self.root = successor
+            elif (isLeft):
+                parent.lChild = successor
+            else:
+                parent.rChild = successor
 
-        # Connect delete node's left child to be successor's left child
-        successor.lChild = deleteNode.lChild
+            # Connect delete node's left child to be successor's left child
+            successor.lChild = deleteNode.lChild
 
-        # Successor node left descendant of delete node
-        if(successor != deleteNode.rChild):
-            successorParent.lChild = successor.rChild
+            # Successor node left descendant of delete node
+            if(successor != deleteNode.rChild):
+                successorParent.lChild = successor.rChild
 
-        successor.rChild = deleteNode.rChild
+            successor.rChild = deleteNode.rChild
 
         return True
-    
+
 
 
 
@@ -190,15 +190,15 @@ class BST(object):
 ###############################
 
 
-# bst = BST()
+bst = BST()
 
-# bst.insert(10)
-# bst.insert(20)
-# bst.insert(30)
+bst.insert(10)
+bst.insert(20)
+bst.insert(30)
+bst.insert(5);
+bst.insert(69);
+bst.delete(30);
+bst.delete(20)
 
-# bst.print(2)
 
-
-
-
-
+bst.print(2)
