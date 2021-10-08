@@ -7,14 +7,14 @@ class Node(object):
 
     
     def print_node(self, level=0):
-        
+            
         if self.lChild != None:
-            print_node(self.lChild, level + 1)
-        
+            self.lChild.print_node( level + 1)
+            
         print(' ' * 4 * level + '->',  self.data)
-        
+            
         if self.rChild != None:
-            print_node(self.rChild, level + 1)
+            self.rChild.print_node( level + 1)
 
 
 
@@ -46,7 +46,7 @@ class BST(object):
         else:
             current = self.root
             parent = self.root
-        
+                
             while (current != None):
                 parent = current
                 if (val < current.data):
@@ -54,31 +54,31 @@ class BST(object):
                 else:
                     current = current.rChild
 
-                if (val < parent.data):
-                    parent.lChild = newNode
-                else:
-                    parent.rChild = newNode
+            if (val < parent.data):
+                parent.lChild = newNode
+            else:
+                parent.rChild = newNode
 
     # In order traversal - left, center, right
     def inOrder(self, aNode):
         if (aNode != None):
-            inOrder (aNode.lChild)
-            print(aNode.data)
-            inOrder (aNode.rChild)
+            self.inOrder (aNode.lChild)
+            self.print(aNode.data)
+            self.inOrder (aNode.rChild)
 
     # Pre order traversal - center, left, right
     def preOrder(self, aNode):
         if (aNode != None):
-            print(aNode.data)
-            preOrder(aNode.lChild)
-            preOrder(aNode.rChild)
+            self.print(aNode.data)
+            self.preOrder(aNode.lChild)
+            self.preOrder(aNode.rChild)
 
     # Post order traversal - left, right, center
     def postOrder(self, aNode):
         if (aNode != None):
-            postOrder (aNode.lChild)
-            postOrder (aNode.rChild)
-            print(aNode.data)
+            self.postOrder (aNode.lChild)
+            self.postOrder (aNode.rChild)
+            self.print(aNode.data)
 
     # Find the node with the smallest value
     def minimum(self):
@@ -158,24 +158,24 @@ class BST(object):
             while (successor.lChild != None):
                 successorParent = successor
 
-        successor = successor.lChild
+                successor = successor.lChild
 
-        # Successor node right child of delete node
-        if(deleteNode == self.root):
-            self.root = successor
-        elif (isLeft):
-            parent.lChild = successor
-        else:
-            parent.rChild = successor
+                # Successor node right child of delete node
+                if(deleteNode == self.root):
+                    self.root = successor
+                elif (isLeft):
+                    parent.lChild = successor
+                else:
+                    parent.rChild = successor
 
-        # Connect delete node's left child to be successor's left child
-        successor.lChild = deleteNode.lChild
+                # Connect delete node's left child to be successor's left child
+                successor.lChild = deleteNode.lChild
 
-        # Successor node left descendant of delete node
-        if(successor != deleteNode.rChild):
-            successorParent.lChild = successor.rChild
+                # Successor node left descendant of delete node
+                if(successor != deleteNode.rChild):
+                    successorParent.lChild = successor.rChild
 
-        successor.rChild = deleteNode.rChild
+                    successor.rChild = deleteNode.rChild
 
         return True
     
@@ -190,13 +190,31 @@ class BST(object):
 ###############################
 
 
-# bst = BST()
+bst = BST()
 
-# bst.insert(10)
-# bst.insert(20)
-# bst.insert(30)
+# 20 must be added first, because it is in the middle. Not a Red/Black Tree!
+bst.insert(20)
+bst.insert(10)
+bst.insert(30)
 
-# bst.print(2)
+bst.print(2)
+print("\n")
+
+bst.delete(30)
+
+bst.print(2)
+print("\n")
+
+bst.insert(30)
+
+bst.insert(-50)
+
+bst.print(2)
+print("\n")
+
+bst.delete(10)
+
+bst.print(2)
 
 
 
