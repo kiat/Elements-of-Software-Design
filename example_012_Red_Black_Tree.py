@@ -131,7 +131,6 @@ class RBTree:
         return '\n'.join(lines)
 
 
- 
 
 def print_tree(node, lines, level = 0):
     if node != None:
@@ -143,10 +142,23 @@ def print_tree(node, lines, level = 0):
 
 
 def main():
+    # tree = RBTree()
+    # for x in range(1, 5):
+    #     tree.insert(x)
+    # print(tree)
+
+
+    # Case zero 
     tree = RBTree()
-    for x in range(1, 30):
-        tree.insert(x)
-    print(tree)
+    m_tree = tree.insert(1)
+
+    if(m_tree.nil.red == False):
+        print("test pass!")
+
+
+
+
+
 
 
 main()
