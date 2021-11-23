@@ -23,9 +23,9 @@ class Student:
         return tuition
 
     def cal_discount(self, percentage):
-        return self.paid_tuition(self) * float(percentage)/100
+        return self.paid_tuition() * float(percentage)/100
 
-    def get_passed_units(self, ):
+    def get_passed_units(self):
         return sum(course.unit for course in self.course_list)
 
 
