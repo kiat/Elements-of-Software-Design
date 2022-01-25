@@ -7,7 +7,7 @@
 import sys
 
 def main():
-  x=sys.stdin.read()
+  x = sys.stdin.read()
   
   print(x)
   print(type(x))
@@ -21,7 +21,7 @@ def main():
 
 
 
-  # print(sys.stdin.read())
+  print(sys.stdin.read())
   print("HelloWorld")
 
 
