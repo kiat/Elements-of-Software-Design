@@ -25,6 +25,7 @@
 * [How to Think Like a Computer Scientist](http://www.greenteapress.com/thinkpython/thinkCSpy.pdf)
 * [Coding Bat](http://codingbat.com/)
 * [Python Course](https://www.python-course.eu/index.php)
+* [python cheat sheet](https://www.pythoncheatsheet.org/)
 
 
 ## Python Tutorials
