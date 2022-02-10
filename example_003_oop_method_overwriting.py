@@ -33,7 +33,7 @@ class StudentDriver(Driver, Student):
 
     def __init__(self, name, salary, courses):
         super().__init__(name, salary)
-        self.courses = courses
+        Student.__init__(self, salary)
  
         
     def __str__(self):

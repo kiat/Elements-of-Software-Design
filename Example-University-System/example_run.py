@@ -1,10 +1,12 @@
 from people import *
+from course import *
 
-from datetime import date
+from interaction_forms import *
 
-dob1 = date.fromisoformat('2000-08-01')
-start_year1 = date.fromisoformat('2020-08-01')
-hiring_year1 = date.fromisoformat('2021-08-01')
+
+dob1 = '2/12/2000'
+start_year1 = '1/8/2020'
+hiring_year1 = '1/8/2021'
 
 
 # Create a Student instance
@@ -49,12 +51,21 @@ print(matt)
 
 # Create a Teaching Assistant
 
-chris = Teaching_Assistant("UT-ST-005",    "Matt",   "Doe", dob1, start_year1, hiring_year1, 1000)
+chris = Teaching_Assistant("UT-ST-005", "Chris", "Doe", dob1, start_year1, hiring_year1, 1000)
 #
 # chris.add_course("CS313")
 # chris.add_course("CS329")
 
 print(chris)
 
+
+cs313 = Course("CS313", "515123",  "Elements of Software Design", 90, 110, "Room 101")
+
+print(cs313)
+
+
+gen_student_form()
+
+# Create a Complete University with colleges, professors, staff members, students and projects.
 
 

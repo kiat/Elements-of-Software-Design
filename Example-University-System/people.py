@@ -45,6 +45,7 @@ class Student(Person):
     # A student has no salary.
     def get_salary(self):
         return 0
+    
 
 
 class Professor(Person):
@@ -52,11 +53,12 @@ class Professor(Person):
     This class represents a Professor in the university system.
     '''
 
-    def __init__(self, id, firstname, lastname, dob, hiring_year, salary, research_projects):
+    def __init__(self, id, firstname, lastname, dob, hiring_year, salary):
         self.hiring_year = hiring_year
-        self.courses = []
         self.salary = salary
-        self.research_projects = research_projects
+
+        self.courses = {}
+        self.research_projects = {}
 
         super().__init__(id, firstname, lastname, dob)
 
@@ -112,9 +114,9 @@ class Teaching_Assistant(Staff, Student):
 
         # Staff().__init__(self, id, firstname, lastname, dob, hiring_year, salary)
 
-    #
-    # def __str__(self):
-    #     return Student().__str__(self) + Staff().__str__(self)
+
+    def __str__(self):
+        return Student.__str__(self) + Staff.__str__(self)
 
 
 

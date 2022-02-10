@@ -1,6 +1,5 @@
 from time import time 
 
-
 def timer(func):
     def f(x, y=1):
         before = time()
