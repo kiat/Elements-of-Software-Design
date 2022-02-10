@@ -57,8 +57,8 @@ class Professor(Person):
         self.hiring_year = hiring_year
         self.salary = salary
 
-        self.courses = {}
-        self.research_projects = {}
+        self.courses = set()
+        self.research_projects = set()
 
         super().__init__(id, firstname, lastname, dob)
 
@@ -67,11 +67,11 @@ class Professor(Person):
             list(self.courses))
 
     def add_course(self, course_id):
-        self.courses.append(course_id)
+        self.courses.add(course_id)
 
     def add_courses(self, courses):
         for course in courses:
-            self.courses.append(course)
+            self.courses.add(course)
 
     def get_courses():
         return self.courses
