@@ -29,7 +29,7 @@ class TestStudent(unittest.TestCase):
 
         john = Student("John", "Doe", "01/01/1996", course_list1)
 
-        self.assertIn("@", list(john.generate_email("utexas.edu")))
+        self.assertIn("adasdasd.", list(john.generate_email("utexas.edu")))
 
 
 

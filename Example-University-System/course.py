@@ -32,10 +32,6 @@ class Course:
         else:
             self.capacity = None
 
-        if 'capacity' in kwargs:
-            self.classroom = kwargs['capacity']
-        else:
-            self.classroom = None
 
     def __str__(self):
         return "University ID Number: " + self.id + "\nTitle: " + self.title + " enrollment is:  " + str(self.enrollment)
@@ -58,7 +54,7 @@ class Course:
         This dunder method enables + operator on two courses.
         '''
         if isinstance(other_course, Course):
-            self.enrollment + other_course.enrollment
+            self.enrollment = self.enrollment + other_course.enrollment
             self.section = int(self.section) + int(other_course.section)
 
             return self
@@ -66,7 +62,7 @@ class Course:
 
 # Dunder Methods in Python
 #
-# _sub__
+# __sub__
 # for subtraction(-)
 #
 # __mul__

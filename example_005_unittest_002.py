@@ -18,7 +18,7 @@ class TestStudent(unittest.TestCase):
         self.assertTrue("@" in list(self.john.generate_email("utexas.edu")))
 
     def test_generate_email003(self):
-        self.assertIn("@", list(self.john.generate_email("utexas.edu")))
+        self.assertIn(".edu", list(self.john.generate_email("utexas.edu")))
 
     def test_paid_tuition(self):
         self.assertEqual(self.john.paid_tuition(), (3000 + 2500))
