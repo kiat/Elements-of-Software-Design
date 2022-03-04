@@ -66,10 +66,10 @@ class LinkedList(object):
     
       current = current.next
 
-      if (current == self.first):
-        self.first = self.first.next
-      else:
-        previous.next = current.next
+    if (current == self.first):
+      self.first = self.first.next
+    else:
+      previous.next = current.next
 
     return current
 
