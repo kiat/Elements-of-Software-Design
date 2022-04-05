@@ -186,7 +186,7 @@ class Graph(object):
     # add the start vertext into the queue
     frontier.enqueue(start)
     # set the level of start point
-    level[start] = 1
+    level[start] = 0
 
     # While frontier is not empty open level by level. 
     while not frontier.is_empty():
