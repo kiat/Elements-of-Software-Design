@@ -53,10 +53,10 @@ class BST(object):
                 else:
                     current = current.rChild
 
-                if (val < parent.data):
-                    parent.lChild = newNode
-                else:
-                    parent.rChild = newNode
+            if (val < parent.data):
+                parent.lChild = newNode
+            else:
+                parent.rChild = newNode
 
     # In order traversal - left, center, right
     def inOrder(self, aNode):
@@ -200,6 +200,3 @@ def main():
 
 if __name__ == '__main__':
     main()
-
-
-
