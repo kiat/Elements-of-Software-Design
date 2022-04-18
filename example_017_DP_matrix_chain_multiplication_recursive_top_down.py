@@ -58,8 +58,8 @@ def matrix_chain_with_memoization(p, n):
     return matrix_chain_memoization_helper(p, i, j)
 
 
-def matrix_chain_buttom_up_iterative(p, n):
-    '''This is a buttom up iterative solution with O(n^3) time complexity'''
+def matrix_chain_bottom_up_iterative(p, n):
+    '''This is a bottom up iterative solution with O(n^3) time complexity'''
 
     dp = [[0 for x in range(n)] for x in range(n)]
 
