@@ -116,7 +116,7 @@ if __name__ == "__main__":
     print()
 
     print("The Minimum number of multiplications is: ",
-          matrix_chain_buttom_up_iterative(p1, len(p1)))
+          matrix_chain_bottom_up_iterative(p1, len(p1)))
 
     print("The Minimum number of multiplications is: ",
-          matrix_chain_buttom_up_iterative(p2, len(p2)))
+          matrix_chain_bottom_up_iterative(p2, len(p2)))
