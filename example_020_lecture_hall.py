@@ -63,13 +63,15 @@ def lecture_hall_greedy(activities):
     # First we sort the list based on their finish time.
     activities.sort(key=lambda x: x[1][1])
     last_finish = activities[0][1][1]
+    max.append(activities[0])
 
     for i in range(1, len(activities)):
         # Include if the start of the next lecture in the sorted list is after the last selected lecture
-        if(activities[i][1][0] > last_finish):
+        if(activities[i][1][0] >= last_finish):
             max.append(activities[i])
             # then this is our last finish time.
             last_finish = activities[i][1][1]
+    print(max)
     return max
 
 
@@ -86,7 +88,7 @@ def lecture_hall_max_number_greedy(activities):
    
     for i in range(1, len(activities)):
         # Include if the start of the next lecture in the sorted list is after the last selected lecture 
-        if(activities[i][1][0] > last_finish):
+        if(activities[i][1][0] >= last_finish):
             count +=1
             last_finish = activities[i][1][1] # then this is our last finish time. 
     return count
@@ -102,9 +104,11 @@ if __name__ == "__main__":
         ('class-9', (8, 12)), ('class-10', (2, 14)),
         ('class-11', (12, 16)), ('class-12', (1, 5)),
         ('class-13', (2, 4)),  ('class-14', (13, 17))]
-
-    lecture_hall_DP(classes)
-    print("Max count is: ",  lecture_hall_max_number_DP(classes))
+    
+    # classes2= []
+    
+    # lecture_hall_DP(classes)
+    # print("Max count is: ",  lecture_hall_max_number_DP(classes))
 
 
     lecture_hall_greedy(classes)
