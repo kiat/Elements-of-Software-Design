@@ -1,4 +1,5 @@
 import sys
+import argparse
 # import numpy as np
 import cProfile
 import pstats
@@ -145,8 +146,14 @@ def profile(fnc):
 @profile
 def main():
     # filename = sys.stdin.read()
+    parser = argparse.ArgumentParser(description='Example Program')
 
-    lines = read_lines("./datasets/part.tbl")
+    parser.add_argument('--filename', type=str, default='./datasets/part.tbl',
+                           help='use the correct input file.')
+
+    args = parser.parse_args()
+
+    lines = read_lines(args.filename)
     values = parse_lines(lines)
     converted_results = convert_toNumbers(values)
 
