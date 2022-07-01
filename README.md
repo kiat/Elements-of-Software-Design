@@ -60,6 +60,10 @@ The following websites provide a good set of programming challenges that you can
 * Binary Search Tutorial https://www.hackerearth.com/practice/algorithms/searching/binary-search/tutorial/
 * Time Complexities for Sorting Algorithm https://www.geeksforgeeks.org/time-complexities-of-all-sorting-algorithms/
 * Big-O Notation http://bigocheatsheet.com/
+* Example Solution Wiki for the Book third edition of Steven Skiena's The Algorithm Design Manual. https://www.algorist.com/algowiki/index.php/Solution_Wiki,_The_Algorithm_Design_Manual,_3rd_Edition
+
+
+
 
 
 
