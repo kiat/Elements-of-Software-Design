@@ -12,22 +12,16 @@ def fib(n):
 # Recursive, Top-Down, Memoized
 mem={}
 
+
 def fib_memoized(n):
-  if(n in mem):
-      return mem.get(n)
-    
-  if( n <= 1):
-    mem[n] = n
-    return n 
-  else:
-    if(n-1 not in mem):
-      tmp_n_1=fib_memoized(n-1)
-      mem[n-1] = tmp_n_1
-    if(n-2 not in mem):
-      tmp_n_2=fib_memoized(n-2)
-      mem[n-2] = tmp_n_2
-    return tmp_n_1 + tmp_n_2
-          
+    if n in mem:
+        return mem[n]
+    if n <= 2:
+            value = 1
+    elif n > 2:           
+            value =  fib_memoized(n -1) + fib_memoized(n -2)
+    mem[n] = value
+    return value
 
 # Iterative Buttom-up Method. 
 def fib_iter(n):
