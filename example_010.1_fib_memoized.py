@@ -13,20 +13,21 @@ def fib(n):
 mem={}
 
 def fib_memoized(n):
+  if(n in mem):
+      return mem.get(n)
+    
   if( n <= 1):
+    mem[n] = n
     return n 
   else:
-    if(n-1 in mem):
-      tmp_n1=mem.get(n-1)
-    else:
-      tmp_n1=fib(n-1)
-      
-    if(n-2 in mem):
-      tmp_n2=mem.get(n-2)
-    else:
-      tmp_n2=fib(n-2)
+    if(n-1 not in mem):
+      tmp_n_1=fib_memoized(n-1)
+      mem[n-1] = tmp_n_1
+    if(n-2 not in mem):
+      tmp_n_2=fib_memoized(n-2)
+      mem[n-2] = tmp_n_2
+    return tmp_n_1 + tmp_n_2
           
-    return tmp_n1 + tmp_n2
 
 # Iterative Buttom-up Method. 
 def fib_iter(n):
