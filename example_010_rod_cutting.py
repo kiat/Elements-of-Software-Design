@@ -36,13 +36,13 @@ def main():
   p = [0, 1, 5, 8, 9, 10, 17, 17, 20]
 
   # prompt the user to enter the size of the rod to be cut
-  n = int (input ("Enter size of rod: "))
+  n = int(input ("Enter size of rod: "))
 
   # get the optimal price for cutting a rod of length n
-  r, s = cut_rod (p, n)
+  r, s = cut_rod(p, n)
 
   # print the optimal price
-  print ("Optimal price = ", r[n])
+  print("Optimal price = ", r[n])
 
   # print the cuts of the rod
   while (n > 0):
