@@ -30,7 +30,7 @@ class Graph:
     def kruskal_algo(self):
         result = []
         i, e = 0, 0
-        self.graph = sorted(self.edges, key=lambda item: item[2])
+        self.edges = sorted(self.edges, key=lambda item: item[2])
         parent = []
         rank = []
         
