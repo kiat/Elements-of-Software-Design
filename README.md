@@ -65,7 +65,7 @@ The following websites provide a good set of programming challenges that you can
 # Books 
 
 * The Practice of Computing Using Python, by W.  Punch and R. Enbody, 3-rd edition, Pearson Publishing, ISBN 978-0-13-437976-0 
-* Introduction to Algorithms, Third Edition, September 2009.  By  Thomas H. Cormen, Charles E. Leiserson, Ronald L. Rivest and Clifford Stein (known as CLRS Algorithm Book)
+* Introduction to Algorithms, Fourth Edition, 2021.  By  Thomas H. Cormen, Charles E. Leiserson, Ronald L. Rivest and Clifford Stein (known as CLRS Algorithm Book)
 * The Algorithm Design Manual: Skiena, Steven S S.
 
 
