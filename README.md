@@ -62,7 +62,11 @@ The following websites provide a good set of programming challenges that you can
 * Big-O Notation http://bigocheatsheet.com/
 * Example Solution Wiki for the Book third edition of Steven Skiena's The Algorithm Design Manual. https://www.algorist.com/algowiki/index.php/Solution_Wiki,_The_Algorithm_Design_Manual,_3rd_Edition
 
+# Books 
 
+* The Practice of Computing Using Python, by W.  Punch and R. Enbody, 3-rd edition, Pearson Publishing, ISBN 978-0-13-437976-0 
+* Introduction to Algorithms, Third Edition, September 2009.  By  Thomas H. Cormen, Charles E. Leiserson, Ronald L. Rivest and Clifford Stein (known as CLRS Algorithm Book)
+* The Algorithm Design Manual: Skiena, Steven S S.
 
 
 
