@@ -23,7 +23,6 @@
 * [Python Programming Language](http://www.python.org/)
 * [Python Reference Manual](http://docs.python.org/py3k)
 * [How to Think Like a Computer Scientist](http://www.greenteapress.com/thinkpython/thinkCSpy.pdf)
-* [Coding Bat](http://codingbat.com/)
 * [Python Course](https://www.python-course.eu/index.php)
 * [python cheat sheet](https://www.pythoncheatsheet.org/)
 
@@ -45,6 +44,7 @@ The following websites provide a good set of programming challenges that you can
 
 * **Leet Code** https://leetcode.com/
 * **hackerrank** https://www.hackerrank.com/
+* **codingbat** https://codingbat.com/python
 * **Geeks for Geeks** https://www.geeksforgeeks.org/
 * **Kattis** https://open.kattis.com/
 * **Python Challenge** http://www.pythonchallenge.com/
