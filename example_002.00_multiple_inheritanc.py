@@ -24,7 +24,5 @@ x.do_it()
 
 # Multiple inheritance with old-style classes is governed by two rules: depth-first and then left-to-right.
 
-# for more details look here https://www.geeksforgeeks.org/multiple-inheritance-in-python/
-
 # The order is driven using a set of rules called Method Resolution Order (MRO).
 print(D.mro())
