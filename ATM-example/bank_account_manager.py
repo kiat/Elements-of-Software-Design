@@ -20,10 +20,10 @@ class Bank_Account_Manangement_System:
         '''We do a linear search to find the account in our database 
         because we have no other indexing'''
         
-        for ac in self.accounts:
-            if (name == ac[1].name):
+        for ac in self.accounts.values():
+            if (name == ac.owner.name):
                 print("Account found!")
-                return ac[1]
+                return ac
                         
         print("Account NOT found!")
         return None

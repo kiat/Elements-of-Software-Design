@@ -144,16 +144,12 @@ def admin_interface(example_bank_management_sys):
     elif(command == "4"):
             
         name = input("Enter the owner's name: ")
-        
-        for ac in example_bank_management_sys.accounts.values():
-            if(ac.owner.name == name):
-                print("Account found")
-                print(ac)
-                clear_screen(6)
-                return 
-            
-        print("Account not found!")     
-        clear_screen(4)
+        ac = example_bank_management_sys.get_account_by_name(name)
+        if(ac!=None):
+            print(ac)
+        else:
+            print("Account Not found!")    
+        clear_screen(6)
         
     else:
         print("Unknown Command!")
