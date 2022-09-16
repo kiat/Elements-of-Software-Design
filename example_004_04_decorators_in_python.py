@@ -11,6 +11,8 @@ from time import time
 #         return rv
 #     return f 
 
+# this video describes this code very well https://www.youtube.com/watch?v=r7Dtus7N4pI
+
 def ntimes(n):
     def inner(func):
         def wrapper(*args, **kwargs):
