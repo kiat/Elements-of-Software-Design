@@ -44,6 +44,7 @@ The following websites provide a good set of programming challenges that you can
 
 * **Leet Code** https://leetcode.com/
 * **hackerrank** https://www.hackerrank.com/
+* **hackerearth** https://www.hackerearth.com/
 * **codingbat** https://codingbat.com/python
 * **Geeks for Geeks** https://www.geeksforgeeks.org/
 * **Kattis** https://open.kattis.com/
