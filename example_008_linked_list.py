@@ -1,4 +1,4 @@
-class Link(object):
+class Link():
   ''' This class represents a link between data items only'''
   def __init__ (self, data, next = None):
     self.data = data
@@ -9,7 +9,7 @@ class Link(object):
 
 
 
-class LinkedList(object):
+class LinkedList():
   ''' This class implements the operations of a simple linked list'''
   def __init__ (self):
     self.first = None
