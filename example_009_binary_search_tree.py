@@ -61,8 +61,8 @@ class BST(object):
     # In order traversal - left, center, right
     def inOrder(self, aNode):
         if (aNode != None):
-            print(aNode.data)
             aNode.inOrder(aNode.lChild)
+            print(aNode.data)
             aNode.inOrder(aNode.rChild)
 
     # Pre order traversal - center, left, right
@@ -75,9 +75,9 @@ class BST(object):
     # Post order traversal - left, right, center
     def postOrder(self, aNode):
         if (aNode != None):
-            print(aNode.data)
             aNode.postOrder(aNode.lChild)
             aNode.postOrder(aNode.rChild)
+            print(aNode.data)
 
     # Find the node with the smallest value
     def minimum(self):
@@ -195,8 +195,19 @@ def main():
     bst.insert(35)
 
     bst.print(2)
+    print("##############")
     bst.delete(10)
+    bst.print(2)
+    print("##############")
 
+    print("Print In-Order")
+    bst.inOrder()
+
+    print("Print Pre-Order")
+    bst.preOrder()
+
+    print("Print Post-Order")
+    bst.postOrder()
 
 if __name__ == '__main__':
     main()
