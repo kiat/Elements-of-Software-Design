@@ -15,6 +15,27 @@ class Node(object):
 
         if self.rChild != None:
             self.rChild.print_node(level + 1)
+    
+      # In order traversal - left, center, right
+    def inOrder(self, aNode):
+        if (aNode != None):
+            aNode.inOrder(aNode.lChild)
+            print(aNode.data, end=" ")
+            aNode.inOrder(aNode.rChild)
+
+    # Pre order traversal - center, left, right
+    def preOrder(self, aNode):
+        if (aNode != None):
+            print(aNode.data, end=" ")
+            aNode.preOrder(aNode.lChild)
+            aNode.preOrder(aNode.rChild)
+
+    # Post order traversal - left, right, center
+    def postOrder(self, aNode):
+        if (aNode != None):
+            aNode.postOrder(aNode.lChild)
+            aNode.postOrder(aNode.rChild)
+            print(aNode.data, end=" ")
 
 
 class BST(object):
@@ -58,26 +79,6 @@ class BST(object):
             else:
                 parent.rChild = newNode
 
-    # In order traversal - left, center, right
-    def inOrder(self, aNode):
-        if (aNode != None):
-            aNode.inOrder(aNode.lChild)
-            print(aNode.data)
-            aNode.inOrder(aNode.rChild)
-
-    # Pre order traversal - center, left, right
-    def preOrder(self, aNode):
-        if (aNode != None):
-            print(aNode.data)
-            aNode.preOrder(aNode.lChild)
-            aNode.preOrder(aNode.rChild)
-
-    # Post order traversal - left, right, center
-    def postOrder(self, aNode):
-        if (aNode != None):
-            aNode.postOrder(aNode.lChild)
-            aNode.postOrder(aNode.rChild)
-            print(aNode.data)
 
     # Find the node with the smallest value
     def minimum(self):
@@ -190,9 +191,8 @@ def main():
     bst.insert(10)
     bst.insert(40)
     bst.insert(5)
-    bst.insert(45)
-    bst.insert(30)
-    bst.insert(35)
+    bst.insert(15)
+    bst.insert(22)
 
     bst.print(2)
     print("##############")
@@ -201,13 +201,13 @@ def main():
     print("##############")
 
     print("Print In-Order")
-    bst.inOrder()
+    bst.root.inOrder(bst.root)
 
     print("Print Pre-Order")
-    bst.preOrder()
+    bst.preOrder(bst.root)
 
     print("Print Post-Order")
-    bst.postOrder()
+    bst.postOrder(bst.root)
 
 if __name__ == '__main__':
     main()
