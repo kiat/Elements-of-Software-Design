@@ -7,14 +7,13 @@ class Node(object):
         self.rChild = None
 
     def print_node(self, level=0):
-
-        if self.lChild != None:
-            self.lChild.print_node(level + 1)
+        if self.rChild != None:
+            self.rChild.print_node(level + 1)
 
         print(' ' * 4 * level + '->', self.data)
 
-        if self.rChild != None:
-            self.rChild.print_node(level + 1)
+        if self.lChild != None:
+            self.lChild.print_node(level + 1)
     
       # In-order traversal - left, center, right
     def inOrder(self, aNode):
