@@ -193,6 +193,7 @@ def main():
     bst.insert(5)
     bst.insert(15)
     bst.insert(22)
+    bst.insert(4)
 
     bst.print(2)
     print("##############")
@@ -203,11 +204,13 @@ def main():
     print("Print In-Order")
     bst.root.inOrder(bst.root)
 
+    print()
     print("Print Pre-Order")
-    bst.preOrder(bst.root)
+    bst.root.preOrder(bst.root)
 
+    print()
     print("Print Post-Order")
-    bst.postOrder(bst.root)
+    bst.root.postOrder(bst.root)
 
 if __name__ == '__main__':
     main()
