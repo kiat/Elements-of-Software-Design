@@ -16,21 +16,21 @@ class Node(object):
         if self.rChild != None:
             self.rChild.print_node(level + 1)
     
-      # In order traversal - left, center, right
+      # In-order traversal - left, center, right
     def inOrder(self, aNode):
         if (aNode != None):
             aNode.inOrder(aNode.lChild)
             print(aNode.data, end=" ")
             aNode.inOrder(aNode.rChild)
 
-    # Pre order traversal - center, left, right
+    # Pre-order traversal - center, left, right
     def preOrder(self, aNode):
         if (aNode != None):
             print(aNode.data, end=" ")
             aNode.preOrder(aNode.lChild)
             aNode.preOrder(aNode.rChild)
 
-    # Post order traversal - left, right, center
+    # Post-order traversal - left, right, center
     def postOrder(self, aNode):
         if (aNode != None):
             aNode.postOrder(aNode.lChild)
