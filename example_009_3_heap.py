@@ -1,5 +1,5 @@
 import sys
-class MaxHeap:
+class Max_heap:
     '''
     Max Heap Implementation in Python
     '''
@@ -115,7 +115,7 @@ class MaxHeap:
 def main():
 
     # Same tree as above example.
-    my_heap = MaxHeap()
+    my_heap = Max_heap()
     my_heap.insert(1)
     print(my_heap)
     my_heap.insert(4)
