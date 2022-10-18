@@ -1,22 +1,22 @@
-class Queue(object):
+class Queue():
   '''Queue implements the FIFO principle.'''
   def __init__ (self):
     self.queue = []
 
-  def enqueue (self, item):
-    self.queue.append (item)
+  def enqueue(self, item):
+    self.queue.append(item)
 
-  def dequeue (self):
+  def dequeue(self):
     if(not self.isEmpty()):
       return self.queue.pop(0)
     else:
       return None
     
-  def isEmpty (self):
+  def isEmpty(self):
     return (len (self.queue) == 0)
 
-  def size (self):
-    return len (self.queue)
+  def size(self):
+    return len(self.queue)
   
   # a string representation of this stack.
   def __str__(self):

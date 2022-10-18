@@ -9,7 +9,7 @@ class TestStudent(unittest.TestCase):
         self.cs329e = Course("CS329E", 4, 2500)
 
         self.john = Student("John", "Doe", "01/01/1996", [self.cs313e, self.cs329e])
-        self.Matt = Student("Matt", "Doe", "01/01/1998", [self.cs313e])
+        self.matt = Student("Matt", "Doe", "01/01/1998", [self.cs313e])
 
     def test_generate_email001(self):
         self.assertEqual(self.john.generate_email("utexas.edu"), "John.Doe@utexas.edu")

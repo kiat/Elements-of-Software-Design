@@ -28,8 +28,9 @@ class TestStudent(unittest.TestCase):
         course_list1 = [cs313e, cs329e]
 
         john = Student("John", "Doe", "01/01/1996", course_list1)
+       
 
-        self.assertIn("adasdasd.", list(john.generate_email("utexas.edu")))
+        self.assertIn("@", list(john.generate_email("utexas.edu")))
 
 
 
