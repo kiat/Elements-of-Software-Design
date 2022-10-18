@@ -10,7 +10,6 @@ class MaxHeap:
         # We do not use the index 0 
         # Index zero is always a very large number as placeholder. 
         self.heap_list = [sys.maxsize]
-        # self.size = 0
 
     @property
     def size(self):
@@ -79,10 +78,19 @@ class MaxHeap:
             self.max_heapify(largest)
 
 
-    def max_heap(self):
-        for i in range(self.size // 2, 1, -1):
-            print("Heapify on index", i)
+    def build_max_heap(self, unsorted_list):
+
+        # Set the max possible number to the begining of the list 
+        unsorted_list.insert(0, sys.maxsize)
+
+        self.heap_list = unsorted_list
+
+        for i in range(len(unsorted_list) // 2 , 1, -1):
             self.max_heapify(i)
+            
+
+
+
 
     def extract_max(self):
         '''Extracts the max of this heap'''
@@ -125,14 +133,20 @@ def main():
     my_heap.insert(22)
     print(my_heap)
     
-    # my_heap.max_heap()
-    # print(my_heap)
-
-    
 
     print("\nSorted Output")
     for i in range(my_heap.size):
         print(my_heap.extract_max())
+
+# 2. Second test 
+# Given an list of integers 
+
+    my_heap.build_max_heap([4,12,45,23,11])
+    print(my_heap)
+
+
+
+
 
 if __name__ == '__main__':
     main()
