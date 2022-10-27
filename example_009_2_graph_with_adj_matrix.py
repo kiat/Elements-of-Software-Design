@@ -1,7 +1,10 @@
+# Run this python script like this 
+# python3  example_009_2_graph_with_adj_matrix.py < graph.txt
+
 
 import sys
-
-class Stack (object):
+###########################################
+class Stack():
   def __init__ (self):
     self.stack = []
 
@@ -25,8 +28,8 @@ class Stack (object):
   def size (self):
     return (len(self.stack))
 
-
-class Queue (object):
+###########################################
+class Queue():
   def __init__ (self):
     self.queue = []
 
@@ -46,8 +49,8 @@ class Queue (object):
   def size(self):
     return (len (self.queue))
 
-
-class Vertex (object):
+###########################################
+class Vertex():
   def __init__ (self, label):
     self.label = label
     self.visited = False
@@ -64,8 +67,8 @@ class Vertex (object):
   def __str__(self):
     return str(self.label)
 
-
-class Graph(object):
+###########################################
+class Graph():
   def __init__(self):
     self.Vertices = []
     self.adjMat = []
@@ -139,7 +142,7 @@ class Graph(object):
     tmp += "\n"
     return tmp
 
-  
+  ###########################################
   def dfs(self, v):
     '''
     Do a Depth First Search in a given Graph. 
@@ -191,7 +194,7 @@ class Graph(object):
     print(finish_times)
 
 
-
+###########################################
 
   def bfs(self, start):
     '''
