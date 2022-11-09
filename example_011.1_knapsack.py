@@ -40,7 +40,7 @@ def knapsack(values, weights, n, cap_weight):
 def knapsack_with_keep(values, weights, n, cap_weight):
   
   dp = [[0 for x in range(cap_weight+1)] for x in range(n+1)]
-  # keep = [[0 for x in range(cap_weight+1)] for x in range(n+1)]
+  keep = [[0 for x in range(cap_weight+1)] for x in range(n+1)]
 
   
   for i in range(n+1):
@@ -49,12 +49,19 @@ def knapsack_with_keep(values, weights, n, cap_weight):
        dp[i][w]=0   
       elif(weights[i-1]<= w):
         dp[i][w] = max(dp[i-1][w], values[i-1] + dp[i-1][w - weights[i-1]])
-        # keep[i][w] = 1
+        keep[i][w] = 1
       else:
         dp[i][w] = dp[i-1][w]
-        # keep[i][w] = 0
+        keep[i][w] = 0
   
-  
+  # # Now we print out which items are selected
+  # k = cap_weight
+  # for i in range(n+1, 0, -1):
+  #   if keep[i][k] == 1:
+  #     print(i)
+  #     k = k - weights[i]
+
+
   # Now we print out which items are selected 
   # 
   opt=dp[n][cap_weight]
@@ -62,18 +69,17 @@ def knapsack_with_keep(values, weights, n, cap_weight):
   for i in range(n, 0, -1):
     if opt <= 0:
       break
-    if opt == dp[i - 1][w]:
+    if opt == dp[i][w]:
       continue
     else:
       # This item is included.
-      print(weights[i - 1])
+      print((i, weights[i], values[i]))
         
       # Since this weight is included
       # its value is deducted
-      opt = opt - values[i - 1]
-      w = w - weights[i - 1]
+      opt = opt - values[i ]
+      w = w - weights[i]
  
-  
   return dp, dp[n][cap_weight]
 
 
@@ -110,6 +116,8 @@ def main():
   print("\n\n DP Solution with Keep")
   value, optimal = knapsack_with_keep(v, w , n, weight)
   print("DP Implementation, Maximum Value: ", optimal)
+
+
 # Call the main function. 
 if __name__ == "__main__":
     main()
