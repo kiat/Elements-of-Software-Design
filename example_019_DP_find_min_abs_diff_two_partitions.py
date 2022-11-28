@@ -1,5 +1,9 @@
-# Given a set of positive integers 'numbers_list', partition the set of 'numbers_list' into two subsets, S1 and S2, such that the difference between
-# the sum of elements in S1 and S2 is minimized. The solution should return the minimum absolute difference between 
+# Given a set of positive integers 'numbers_list', 
+# partition the set of 'numbers_list' into two subsets, S1 and S2, 
+# such that the difference between
+# the sum of elements in S1 and S2 is minimized. 
+# 
+# The solution should return the minimum absolute difference between 
 # the sum of elements of two partitions.
 
 
