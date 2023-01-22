@@ -66,9 +66,13 @@ The following websites provide a good set of programming challenges that you can
 
 # Books 
 
-* The Practice of Computing Using Python, by W.  Punch and R. Enbody, 3-rd edition, Pearson Publishing, ISBN 978-0-13-437976-0 https://www.amazon.com/Practice-Computing-Using-Python-3rd/dp/0134379764
+## Algorithms
 * Introduction to Algorithms, Fourth Edition, 2021.  By  Thomas H. Cormen, Charles E. Leiserson, Ronald L. Rivest and Clifford Stein (known as CLRS Algorithm Book) https://www.amazon.com/Introduction-Algorithms-fourth-Thomas-Cormen/dp/026204630X 
 * The Algorithm Design Manual: Skiena, Steven S S. https://www.amazon.com/Algorithm-Design-Manual-Computer-Science/dp/3030542556
+
+## Python Programing
+* The Practice of Computing Using Python, by W.  Punch and R. Enbody, 3-rd edition, Pearson Publishing, ISBN 978-0-13-437976-0 https://www.amazon.com/Practice-Computing-Using-Python-3rd/dp/0134379764
+
 
 
 
