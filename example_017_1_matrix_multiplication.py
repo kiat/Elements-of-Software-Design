@@ -1,11 +1,20 @@
-def multiply_matrix(A,B):
-  global C
-  if  A.shape[1] == B.shape[0]:
-    C = np.zeros((A.shape[0],B.shape[1]),dtype = int)
-    for row in range(rows): 
-        for col in range(cols):
-            for elt in range(len(B)):
-              C[row, col] += A[row, elt] * B[elt, col]
-    return C
-  else:
-    return "Sorry, cannot multiply A and B."
+# Input two matrices of size n x m
+matrix_A = [[1, 2, 3],
+            [1, 2, 3],
+            [1, 2, 3]]
+
+matrix_B = [[1, 0, 0],
+            [0, 1, 0],
+            [0, 0, 1]]
+
+matrix_C = [[0 for x in range(3)] for y in range(3)]
+
+# explicit for loops
+for i in range(len(matrix_A)):
+	for j in range(len(matrix_B[0])):
+		for k in range(len(matrix_B)):
+
+			# resulted matrix
+			matrix_C[i][j] += matrix_A[i][k] * matrix_B[k][j]
+
+print(matrix_C)
