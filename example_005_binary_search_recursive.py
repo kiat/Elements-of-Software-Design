@@ -25,9 +25,16 @@ def binary_search(arr, low, high, x):
  
 
 # Example RUn
-arr = [2, 3, 4, 10, 40 ]
-x = 10
+arr = [1, 2, 3, 4, 5 ]
+x = 2
  
+# Function call
+result = binary_search(arr, 0, len(arr)-1, x)
+print(result)
+
+
+x = 20
+
 # Function call
 result = binary_search(arr, 0, len(arr)-1, x)
 print(result)
