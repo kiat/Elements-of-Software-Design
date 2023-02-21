@@ -7,7 +7,7 @@ matrix_B = [[1, 0, 0],
             [0, 1, 0],
             [0, 0, 1]]
 
-matrix_C = [[0 for x in range(3)] for y in range(3)]
+matrix_C = [[0 for x in range(len(matrix_A))] for y in range(len(matrix_B[0]))]
 
 # explicit for loops
 for i in range(len(matrix_A)):
