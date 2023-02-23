@@ -22,16 +22,16 @@ def strassen(a, b):
 	# Splitting the matrices into quadrants. This will be done recursively
 	# until the base case is reached.
 	a11, a12, a21, a22 = split(a)
-	b11, b21, b21, b22 = split(b)
+	b11, b12, b21, b22 = split(b)
 
 	# Computing the 7 products, recursively (p1, p2...p7)
-	p1 = strassen(a11, b21 - b22)
+	p1 = strassen(a11, b12 - b22)
 	p2 = strassen(a11 + a12, b22)
 	p3 = strassen(a21 + a22, b11)
 	p4 = strassen(a22, b21 - b11)
 	p5 = strassen(a11 + a22, b11 + b22)
 	p6 = strassen(a12 - a22, b21 + b22)
-	p7 = strassen(a11 - a21, b11 + b21)
+	p7 = strassen(a11 - a21, b11 + b12)
 
 	# Computing the values of the 4 quadrants of the final matrix c
 	c11 = p5 + p4 - p2 + p6
