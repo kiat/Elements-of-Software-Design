@@ -8,30 +8,30 @@ def split(matrix):
 	row2, col2 = row//2, col//2
 	return matrix[:row2, :col2], matrix[:row2, col2:], matrix[row2:, :col2], matrix[row2:, col2:]
 
-def strassen(x, y):
+def strassen(a, b):
 	'''
 	Computes matrix product by divide and conquer approach, recursively.
-	Input: n x n numpy array matrices x and y
-	Output: n x n matrix, product of x and y
+	Input: n x n numpy array matrices a and b
+	Output: n x n matrix, product of a and b
 	'''
 
 	# Base case when size of matrices is 1x1
-	if len(x) == 1:
-		return x * y
+	if len(a) == 1:
+		return a * b
 
 	# Splitting the matrices into quadrants. This will be done recursively
 	# until the base case is reached.
-	a, b, c, d = split(x)
-	e, f, g, h = split(y)
+	a11, a12, a21, a22 = split(a)
+	b11, b21, b21, b22 = split(b)
 
 	# Computing the 7 products, recursively (p1, p2...p7)
-	p1 = strassen(a, f - h)
-	p2 = strassen(a + b, h)
-	p3 = strassen(c + d, e)
-	p4 = strassen(d, g - e)
-	p5 = strassen(a + d, e + h)
-	p6 = strassen(b - d, g + h)
-	p7 = strassen(a - c, e + f)
+	p1 = strassen(a11, b21 - b22)
+	p2 = strassen(a11 + a12, b22)
+	p3 = strassen(a21 + a22, b11)
+	p4 = strassen(a22, b21 - b11)
+	p5 = strassen(a11 + a22, b11 + b22)
+	p6 = strassen(a12 - a22, b21 + b22)
+	p7 = strassen(a11 - a21, b11 + b21)
 
 	# Computing the values of the 4 quadrants of the final matrix c
 	c11 = p5 + p4 - p2 + p6
