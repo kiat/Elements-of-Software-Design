@@ -29,24 +29,29 @@ class Queue():
 #                             #
 ###############################
 
-my_queue = Queue()
+def main():
+  my_queue = Queue()
+  
+  # enqueue 10
+  my_queue.enqueue(10)
+  print(my_queue)
 
-# enqueue 10
-my_queue.enqueue(10)
-print(my_queue)
-
-# enqueue 18
-my_queue.enqueue(18)
-print(my_queue)
-
-
-# enqueue 1024
-my_queue.enqueue(1024)
-print(my_queue)
+  # enqueue 18
+  my_queue.enqueue(18)
+  print(my_queue)
 
 
-# dequeue()
-print("Dequeue ", my_queue.dequeue())
-print("Dequeue ", my_queue.dequeue())
-print("Dequeue ", my_queue.dequeue())
-print("Dequeue ", my_queue.dequeue())
+  # enqueue 1024
+  my_queue.enqueue(1024)
+  print(my_queue)
+
+
+  # dequeue()
+  print("Dequeue ", my_queue.dequeue())
+  print("Dequeue ", my_queue.dequeue())
+  print("Dequeue ", my_queue.dequeue())
+  print("Dequeue ", my_queue.dequeue())
+
+
+if __name__ == '__main__':
+    main()

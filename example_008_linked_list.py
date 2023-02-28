@@ -81,31 +81,34 @@ class LinkedList():
 #   Example run of a Linked List    #
 #                                   #
 #####################################
+def main():
 
 
-my_list = LinkedList()
+  my_list = LinkedList()
 
 
-my_list.insertFirst(10)
-print(my_list)
+  my_list.insertFirst(10)
+  print(my_list)
 
 
-my_list.insertFirst(20)
-print(my_list)
+  my_list.insertFirst(20)
+  print(my_list)
 
 
-my_list.insertFirst(30)
-print(my_list)
+  my_list.insertFirst(30)
+  print(my_list)
 
 
-my_list.insertLast(1)
-print(my_list)
+  my_list.insertLast(1)
+  print(my_list)
 
 
-print("Find Link of 10 : It is  ", my_list.findLink(10))
+  print("Find Link of 10 : It is  ", my_list.findLink(10))
 
 
-my_list.deleteLink(20)
-print(my_list)
+  my_list.deleteLink(20)
+  print(my_list)
 
 
+if __name__ == '__main__':
+    main()

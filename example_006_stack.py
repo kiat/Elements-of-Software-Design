@@ -31,30 +31,6 @@ class Stack (object):
     return str(self.stack)
 
 
-# # a different implementation of the Stack class
-# class Stack (object):
-#   def __init__ (self):
-#     self.stack = []
-
-#   def push (self, item):
-#     self.stack.insert(0, item )
-
-#   def pop(self):
-#     return self.stack.pop(0)
-
-#   def peek (self):
-#     return self.stack[0]
-
-#   def isEmpty (self):
-#     return (len(self.stack) == 0)
-
-#   def size (self):
-#     return (len(self.stack))
-
-
-
-
-
 
 ###############################
 #                             #
@@ -62,35 +38,41 @@ class Stack (object):
 #                             #
 ###############################
 
-my_stack = Stack()
+def main():
 
-# Push 10
-my_stack.push(10)
-print(my_stack)
+  my_stack = Stack()
 
-# Push 18
-my_stack.push(18)
-print(my_stack)
+  # Push 10
+  my_stack.push(10)
+  print(my_stack)
 
-
-# Push 1024
-my_stack.push(1024)
-print(my_stack)
+  # Push 18
+  my_stack.push(18)
+  print(my_stack)
 
 
-# pop() 
-print("pop()  ", my_stack.pop())
+  # Push 1024
+  my_stack.push(1024)
+  print(my_stack)
 
 
-# peek()
-print("peak()  ", my_stack.peek())
+  # pop() 
+  print("pop()  ", my_stack.pop())
 
 
-# isEmpty()
-print("isEmpty()   ", my_stack.isEmpty())
+  # peek()
+  print("peak()  ", my_stack.peek())
 
 
-print("pop()  ", my_stack.pop())
-print("pop()  ", my_stack.pop())
-print("pop()  ", my_stack.pop())
-print("isEmpty()   ", my_stack.isEmpty())
+  # isEmpty()
+  print("isEmpty()   ", my_stack.isEmpty())
+
+
+  print("pop()  ", my_stack.pop())
+  print("pop()  ", my_stack.pop())
+  print("pop()  ", my_stack.pop())
+  print("isEmpty()   ", my_stack.isEmpty())
+
+
+if __name__ == '__main__':
+    main()
