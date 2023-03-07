@@ -54,7 +54,7 @@ class BST():
                 current = current.lChild
             else:
                 current = current.rChild
-            return current
+        return current
 
     # Insert a node in the tree
     def insert(self, val):
