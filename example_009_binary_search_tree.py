@@ -1,4 +1,4 @@
-class Node(object):
+class Node():
     '''This class represents a single Node.'''
 
     def __init__(self, data):
@@ -37,7 +37,7 @@ class Node(object):
             print(aNode.data, end=" ")
 
 
-class BST(object):
+class BST():
     '''This class represents a Binary Search Tree.'''
 
     def __init__(self):
@@ -65,14 +65,14 @@ class BST(object):
         else:
             current = self.root
             parent = self.root
-
+# seearch 
             while (current != None):
                 parent = current
                 if (val < current.data):
                     current = current.lChild
                 else:
                     current = current.rChild
-
+# insert 
             if (val < parent.data):
                 parent.lChild = newNode
             else:
