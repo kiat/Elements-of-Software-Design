@@ -50,6 +50,8 @@ class Graph:
                 
         for u, v, weight in result:
             print("%d - %d: %d" % (u, v, weight))
+        
+        return result
 
 
 
