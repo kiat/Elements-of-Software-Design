@@ -189,6 +189,8 @@ class Graph(object):
         selected[y] = True
         no_edge += 1
 
+        return selected
+
 
    
 
