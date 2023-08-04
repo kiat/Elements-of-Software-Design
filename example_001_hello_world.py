@@ -1,6 +1,6 @@
 """ This is an example to read from standard input.
     Run this python script as following
-    python3  example_001_hello_world.py < example_data.in 
+    python3  example_001_hello_world.py < example_data.in
     """
 import sys
 
