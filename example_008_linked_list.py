@@ -1,80 +1,86 @@
+''' Example of a LinkedList implementation.'''
+
 class Link():
-  ''' This class represents a link between data items only'''
-  def __init__ (self, data, next = None):
-    self.data = data
-    self.next = next
+    ''' This class represents a link between data items only.'''
+    def __init__ (self, data, next_link = None):
+        self.data = data
+        self.next = next_link
 
-  def __str__(self):
-    return str(self.data) + " --> " + str(self.next)
+    def print_data(self):
+        ''' Print the data contained in this link.'''
+        print(self.data)
 
+    def __str__(self):
+        return str(self.data) + " --> " + str(self.next)
 
 
 class LinkedList():
-  ''' This class implements the operations of a simple linked list'''
-  def __init__ (self):
-    self.first = None
+    ''' This class implements the operations of a simple linked list.'''
+    def __init__ (self):
+        self.first = None
 
-  def insertFirst (self, data):
-    '''inset data at begining of a linked list'''
-    newLink = Link(data)
-    newLink.next = self.first
-    self.first = newLink
+    def insert_first (self, data):
+        '''Insert data at begining of a linked list.'''
+        new_link = Link(data)
+        new_link.next = self.first
+        self.first = new_link
 
-  def insertLast (self, data):
-    ''' Inset the data at the end of a linked list '''
-    newLink = Link(data)
-    current = self.first
+    def insert_last (self, data):
+        '''Insert the data at the end of a linked list.'''
+        new_link = Link(data)
+        current = self.first
 
-    if (current == None):
-      self.first = newLink
-      return
-    # find the last and insert it there. 
-    while (current.next != None):
-      current = current.next
+        if current is None:
+            self.first = new_link
+            return
+        # Find the last and insert it there.
+        while current.next is not None:
+            current = current.next
 
-    current.next = newLink
+        current.next = new_link
 
-  def findLink(self, data):
-    ''' find to which data is the link of a given data inside this linked list'''
-    current = self.first
-    if (current == None):
-      return None
+    def find_link(self, data):
+        '''Find to which data is the link of a given data inside this linked list.'''
+        current = self.first
+        if current is None:
+            return None
 
-    # searcg and find the position of the given data, the get the link if. 
-    while (current.data != data):
-      if (current.next == None):
-        return None
-      else:
-        current = current.next
+        # Search and find the position of the given data, the get the link if.
+        while current.data != data:
+            if current.next is None:
+                return None
 
-    return current
+            current = current.next
 
-  def deleteLink(self, data):
-    ''' Removes the data from the list if exist and fix the link problems.'''
+        return current
 
-    current = self.first
-    previous = self.first
+    def delete_link(self, data):
+        '''Removes the data from the list if exist and fix the link problems.'''
 
-    if (current == None):
-      return None
+        current = self.first
+        previous = self.first
 
-    while (current.data != data):
-      if (current.next == None):
-        return None
-      else:
-        previous = current
-    
-      current = current.next
+        if current is None:
+            return None
 
-    if (current == self.first):
-      self.first = self.first.next
-    else:
-      previous.next = current.next
+        while current.data != data:
+            if current.next is None:
+                return None
 
-    return current
+            previous = current
 
-  def __str__(self):
-    return str(self.first)
+            current = current.next
+
+        if current == self.first:
+            self.first = self.first.next
+        else:
+            previous.next = current.next
+
+        return current
+
+    def __str__(self):
+        return str(self.first)
+
 
 #####################################
 #                                   #
@@ -82,32 +88,32 @@ class LinkedList():
 #                                   #
 #####################################
 def main():
+    '''A main function to demonstrate the linked list functions.'''
+
+    my_list = LinkedList()
 
 
-  my_list = LinkedList()
+    my_list.insert_first(10)
+    print(my_list)
 
 
-  my_list.insertFirst(10)
-  print(my_list)
+    my_list.insert_first(20)
+    print(my_list)
 
 
-  my_list.insertFirst(20)
-  print(my_list)
+    my_list.insert_first(30)
+    print(my_list)
 
 
-  my_list.insertFirst(30)
-  print(my_list)
+    my_list.insert_last(1)
+    print(my_list)
 
 
-  my_list.insertLast(1)
-  print(my_list)
+    print("Find Link of 10 : It is  ", my_list.find_link(10))
 
 
-  print("Find Link of 10 : It is  ", my_list.findLink(10))
-
-
-  my_list.deleteLink(20)
-  print(my_list)
+    my_list.delete_link(20)
+    print(my_list)
 
 
 if __name__ == '__main__':

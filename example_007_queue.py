@@ -1,26 +1,31 @@
+'''Example of a Queue implementation.'''
+
 class Queue():
-  '''Queue implements the FIFO principle.'''
-  def __init__ (self):
-    self.queue = []
+    '''Queue implements the FIFO principle.'''  
+    def __init__ (self):
+        self.queue = []
 
-  def enqueue(self, item):
-    self.queue.append(item)
+    def enqueue(self, item):
+        '''Takes in an item and adds it to the end of the queue.'''
+        self.queue.append(item)
 
-  def dequeue(self):
-    if(not self.isEmpty()):
-      return self.queue.pop(0)
-    else:
-      return None
-    
-  def isEmpty(self):
-    return (len (self.queue) == 0)
+    def dequeue(self):
+        '''Removes an item from the end of the queue.'''
+        if not self.is_empty():
+            return self.queue.pop(0)
+        return None
 
-  def size(self):
-    return len(self.queue)
-  
-  # a string representation of this stack.
-  def __str__(self):
-    return str(self.queue)
+    def is_empty(self):
+        '''Checks if the queue is empty.'''
+        return len (self.queue) == 0
+
+    def size(self):
+        '''Returns the number of elements in the queue.'''
+        return len(self.queue)
+
+    def __str__(self):
+        '''Returns a string representation of the queue.'''
+        return str(self.queue)
 
 
 ###############################
@@ -30,27 +35,29 @@ class Queue():
 ###############################
 
 def main():
-  my_queue = Queue()
-  
-  # enqueue 10
-  my_queue.enqueue(10)
-  print(my_queue)
+    '''A main function to demonstrate the queue functions.'''
 
-  # enqueue 18
-  my_queue.enqueue(18)
-  print(my_queue)
+    my_queue = Queue()
 
+    # Enqueue 10
+    my_queue.enqueue(10)
+    print(my_queue)
 
-  # enqueue 1024
-  my_queue.enqueue(1024)
-  print(my_queue)
+    # Enqueue 18
+    my_queue.enqueue(18)
+    print(my_queue)
 
 
-  # dequeue()
-  print("Dequeue ", my_queue.dequeue())
-  print("Dequeue ", my_queue.dequeue())
-  print("Dequeue ", my_queue.dequeue())
-  print("Dequeue ", my_queue.dequeue())
+    # Enqueue 1024
+    my_queue.enqueue(1024)
+    print(my_queue)
+
+
+    # dequeue()
+    print('Dequeue ', my_queue.dequeue())
+    print('Dequeue ', my_queue.dequeue())
+    print('Dequeue ', my_queue.dequeue())
+    print('Dequeue ', my_queue.dequeue())
 
 
 if __name__ == '__main__':

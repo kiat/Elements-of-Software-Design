@@ -1,36 +1,36 @@
-class Stack (object):
+"""Example of a Stack implementation."""
 
-  def __init__ (self):
-    self.stack = []
+class Stack ():
+    """This class defines a Stack."""
 
-  # add an item to the top of the stack
-  def push (self, item):
-    self.stack.append(item)
+    def __init__ (self):
+        self.stack = []
 
-  # remove an item from the top of the stack
-  def pop(self):
-    if(not self.isEmpty()):
-      return self.stack.pop()
-    else:
-      return None
+    def push (self, item):
+        """Takes in an item and adds to to the top of the stack."""
+        self.stack.append(item)
 
-  # check what item is on top of the stack without removing it
-  def peek(self):
-    return self.stack[len(self.stack) - 1]
+    def pop(self):
+        """Removes an item from the top of the stack."""
+        if not self.is_empty():
+            return self.stack.pop()
+        return None
 
-  # check if a stack is empty
-  def isEmpty (self):
-    return (len(self.stack) == 0)
+    def peek(self):
+        """Checks what item is on top of the stack without removing it."""
+        return self.stack[len(self.stack) - 1]
 
-  # return the number of elements in the stack
-  def size(self):
-    return (len(self.stack))
+    def is_empty (self):
+        """Checks if a stack is empty."""
+        return len(self.stack) == 0
 
-  # a string representation of this stack. 
-  def __str__(self):
-    return str(self.stack)
+    def size(self):
+        """Returns the number of elements in the stack."""
+        return len(self.stack)
 
-
+    def __str__(self):
+        """A string representation of this stack."""
+        return str(self.stack)
 
 ###############################
 #                             #
@@ -39,40 +39,35 @@ class Stack (object):
 ###############################
 
 def main():
+    """A main function to demonstrate the Stack functions."""
 
-  my_stack = Stack()
+    my_stack = Stack()
 
-  # Push 10
-  my_stack.push(10)
-  print(my_stack)
+    # Push 10
+    my_stack.push(10)
+    print(my_stack)
 
-  # Push 18
-  my_stack.push(18)
-  print(my_stack)
+    # Push 18
+    my_stack.push(18)
+    print(my_stack)
 
+    # Push 1024
+    my_stack.push(1024)
+    print(my_stack)
 
-  # Push 1024
-  my_stack.push(1024)
-  print(my_stack)
+    # pop()
+    print("pop()  ", my_stack.pop())
 
+    # peek()
+    print("peak()  ", my_stack.peek())
 
-  # pop() 
-  print("pop()  ", my_stack.pop())
+    # isEmpty()
+    print("isEmpty()   ", my_stack.is_empty())
 
-
-  # peek()
-  print("peak()  ", my_stack.peek())
-
-
-  # isEmpty()
-  print("isEmpty()   ", my_stack.isEmpty())
-
-
-  print("pop()  ", my_stack.pop())
-  print("pop()  ", my_stack.pop())
-  print("pop()  ", my_stack.pop())
-  print("isEmpty()   ", my_stack.isEmpty())
-
+    print("pop()  ", my_stack.pop())
+    print("pop()  ", my_stack.pop())
+    print("pop()  ", my_stack.pop())
+    print("isEmpty()   ", my_stack.is_empty())
 
 if __name__ == '__main__':
     main()
