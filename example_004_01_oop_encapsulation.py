@@ -1,22 +1,28 @@
+"""An example of encapsulation."""
+
 class Car():
+    """A simple Car class to demonstrate encapsulation."""
     def __init__(self, year=1885):
         self.year = year
-        # “Private” instance variables that cannot be accessed except from inside an object don’t exist in Python.
+        # “Private” instance variables that cannot be accessed except from
+        # inside an object don’t exist in Python.
 
     @property
     def year(self):
-        print("Gett year value...")
+        """Method to return year value."""
+        print("Get year value...")
         return self.__year
 
     @year.setter
     def year(self, year):
+        """Method to set year value."""
         print("Set year value...")
-        if (year > 1885 and year < 2022):
+        if 1885 < year < 2022:
             self.__year = year
         else:
             raise ValueError("Year must be between 1885 and 2022")
             # self.__year =  0
-            print("Year must be between 1885 and 2022")
+            # print("Year must be between 1885 and 2022")
 
     def __str__(self):
         return str(self.year)

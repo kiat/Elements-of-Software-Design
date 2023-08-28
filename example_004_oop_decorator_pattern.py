@@ -3,7 +3,7 @@ to an object without changing its implementation. It differs from inheritance be
 the new functionalities are attached to that particular object on-demand,
 not to the entire subclass."""
 
-class HashTag:
+class HashTag: # pylint: disable=too-few-public-methods
     """Represents a hash tag text."""
 
     def __init__(self, text):
@@ -19,7 +19,7 @@ class HashTag:
     #     return len(self._text)
 
 
-class BoldWrapper(HashTag):
+class BoldWrapper(HashTag): # pylint: disable=too-few-public-methods
     """Wraps a tag in <b>"""
 
     def __init__(self, wrapped):
@@ -30,7 +30,7 @@ class BoldWrapper(HashTag):
         return f"<b>{self._wrapped.render()}</b>"
 
 
-class ItalicWrapper(HashTag):
+class ItalicWrapper(HashTag): # pylint: disable=too-few-public-methods
     """Wraps a tag in <i>"""
 
     def __init__(self, wrapped):

@@ -1,40 +1,31 @@
-from time import time 
+"""Now we want to run the timer n times."""
 
-# Now we want to run the timer n times. 
+from time import time
 
 def timer(func):
-    def f(*args, **kwargs):
+    """A decorator to time a given function."""
+    def time_func(*args, **kwargs):
         before = time()
-        rv = func(*args, **kwargs)
+        ret_val = func(*args, **kwargs)
         after = time()
 
         print("Elapsed Time is: ", after - before)
-        return rv
-    return f 
+        return ret_val
+    return time_func
 
 
 @timer
-def add(x, y=1):
-    return x + y
+def add(num1, num2=1):
+    """A simple function to add two numbers. """
+    return num1 + num2
 
 
 @timer
-def mult(x, y=1):
-    return x * y
+def mult(num1, num2=1):
+    """A simple function to multiply. """
+    return num1 * num2
 
 
-print("add(1,2) = ", add(1,2))
+print("add(1,2) = ", add(1, 2))
 
-print("mult(2,3) = ", mult(2,3))
-
-
-
-
-
-
-
-
-
-
-
-
+print("mult(2,3) = ", mult(2, 3))

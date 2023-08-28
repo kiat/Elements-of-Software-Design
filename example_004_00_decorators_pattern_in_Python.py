@@ -1,38 +1,32 @@
-from time import time 
+""" A simple Example for a program timing problem with a decorator pattern."""
+
+from time import time
+
 
 def timer(func):
-    def f(x, y=1):
+    """A decorator to time a given function."""
+    def time_func(num1, num2=1):
         before = time()
-        rv = func(x, y)
+        ret_val = func(num1, num2)
         after = time()
 
         print("Elapsed Time is: ", after - before)
-        return rv
-    return f 
+        return ret_val
+    return time_func
 
 
 @timer
-def add(x, y=1):
-    return x + y
+def add(num1, num2=1):
+    """A simple function to add two numbers. """
+    return num1 + num2
 
 
 @timer
-def mult(x, y=1):
-    return x * y
+def mult(num1, num2=1):
+    """A simple function to multiply. """
+    return num1 * num2
 
 
-print("add(1,2) = ", add(1,2))
+print("add(1,2) = ", add(1, 2))
 
-print("mult(2,3) = ", mult(2,3))
-
-
-
-
-
-
-
-
-
-
-
-
+print("mult(2,3) = ", mult(2, 3))

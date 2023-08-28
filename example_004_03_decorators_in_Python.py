@@ -1,6 +1,6 @@
-from time import time 
+"""Now we want to run the timer n times."""
 
-# Now we want to run the timer n times. 
+from time import time
 
 # def timer(func):
 #     def f(*args, **kwargs):
@@ -9,44 +9,35 @@ from time import time
 #         after = time()
 #         print("Elapsed Time is: ", after - before)
 #         return rv
-#     return f 
+#     return f
 
-n = 4
+N = 4
+
 
 def ntimes(func):
+    """A decorator to time a function n times."""
     def wrapper(*args, **kwargs):
-        for _ in range(n):
+        for _ in range(N):
             before = time()
-            rv = func(*args, **kwargs)
+            ret_val = func(*args, **kwargs)
             after = time()
             print("Elapsed Time is: ", after - before)
-        return rv
+        return ret_val
     return wrapper
 
 
+@ntimes
+def add(num1, num2=1):
+    """A simple function to add two numbers. """
+    return num1 + num2
+
 
 @ntimes
-def add(x, y=1):
-    return x + y
+def mult(num1, num2=1):
+    """A simple function to multiply. """
+    return num1 * num2
 
 
-@ntimes
-def mult(x, y=1):
-    return x * y
+print("add(1,2) = ", add(1, 2))
 
-
-print("add(1,2) = ", add(1,2))
-
-print("mult(2,3) = ", mult(2,3))
-
-
-
-
-
-
-
-
-
-
-
-
+print("mult(2,3) = ", mult(2, 3))
