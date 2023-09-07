@@ -22,7 +22,7 @@ class Car:
         '''If the full brake is applied, this car will stop.'''
         while self.speed > 0:
             self.speed -= 1
-            print("Stoping this car", self.speed)
+            print("Stopping this car", self.speed)
 
 
 class Truck(Car):
@@ -34,7 +34,7 @@ class Truck(Car):
         '''A truck brakes slowly'''
         while self.speed > 0:
             self.speed -= 0.1
-            print("Stoping this truck", self.speed)
+            print("Stopping this truck", self.speed)
 
     def __repr__(self):
         return "Truck "
@@ -46,7 +46,7 @@ class SedanCar(Car):
         '''A sedan car can brake fast.'''
         while self.speed > 0:
             self.speed -= 2
-            print("Stoping this sedan", self.speed)
+            print("Stopping this sedan", self.speed)
 
     def __repr__(self):
         return "Sedan_Car"
