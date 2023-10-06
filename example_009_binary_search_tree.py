@@ -1,8 +1,8 @@
 class Node():
     '''This class represents a single Node.'''
 
-    def __init__(self, data):
-        self.data = data
+    def __init__(self, key):
+        self.key = key
         self.lChild = None
         self.rChild = None
 
@@ -10,7 +10,7 @@ class Node():
         if self.rChild != None:
             self.rChild.print_node(level + 1)
 
-        print(' ' * 4 * level + '->', self.data)
+        print(' ' * 4 * level + '->', self.key)
 
         if self.lChild != None:
             self.lChild.print_node(level + 1)
@@ -19,13 +19,13 @@ class Node():
     def inOrder(self, aNode):
         if (aNode != None):
             aNode.inOrder(aNode.lChild)
-            print(aNode.data, end=" ")
+            print(aNode.key, end=" ")
             aNode.inOrder(aNode.rChild)
 
     # Pre-order traversal - center, left, right
     def preOrder(self, aNode):
         if (aNode != None):
-            print(aNode.data, end=" ")
+            print(aNode.key, end=" ")
             aNode.preOrder(aNode.lChild)
             aNode.preOrder(aNode.rChild)
 
@@ -34,7 +34,7 @@ class Node():
         if (aNode != None):
             aNode.postOrder(aNode.lChild)
             aNode.postOrder(aNode.rChild)
-            print(aNode.data, end=" ")
+            print(aNode.key, end=" ")
 
 
 class BST():
@@ -49,8 +49,8 @@ class BST():
     # Search for a node with the key
     def search(self, key):
         current = self.root
-        while ((current != None) and (current.data != key)):
-            if (key < current.data):
+        while ((current != None) and (current.key != key)):
+            if (key < current.key):
                 current = current.lChild
             else:
                 current = current.rChild
@@ -68,12 +68,12 @@ class BST():
 # seearch 
             while (current != None):
                 parent = current
-                if (val < current.data):
+                if (val < current.key):
                     current = current.lChild
                 else:
                     current = current.rChild
 # insert 
-            if (val < parent.data):
+            if (val < parent.key):
                 parent.lChild = newNode
             else:
                 parent.rChild = newNode
@@ -108,9 +108,9 @@ class BST():
             return False
 
         # Find the delete node
-        while ((deleteNode != None) and (deleteNode.data != key)):
+        while ((deleteNode != None) and (deleteNode.key != key)):
             parent = deleteNode
-            if (key < deleteNode.data):
+            if (key < deleteNode.key):
                 deleteNode = deleteNode.lChild
                 isLeft = True
             else:
