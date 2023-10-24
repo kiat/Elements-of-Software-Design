@@ -1,10 +1,13 @@
-# Run this python script like this 
-# python3  example_009_2_graph_with_adj_matrix.py < graph.txt
-
+""" 
+Run this python script like this 
+python3  example_009_2_graph_with_adj_matrix.py < graph.txt
+"""
 
 import sys
+
 ###########################################
 class Stack():
+  """Stack implementation"""
   def __init__ (self):
     self.stack = []
 
@@ -30,6 +33,7 @@ class Stack():
 
 ###########################################
 class Queue():
+  """Queue Implementation"""
   def __init__ (self):
     self.queue = []
 
@@ -51,6 +55,7 @@ class Queue():
 
 ###########################################
 class Vertex():
+  """A single vertex of a Graph."""
   def __init__ (self, label):
     self.label = label
     self.visited = False
@@ -69,59 +74,64 @@ class Vertex():
 
 ###########################################
 class Graph():
-  def __init__(self):
-    self.Vertices = []
-    self.adjMat = []
+  """A Graph Class G(V, E)"""
 
-  # check if a vertex is already in the graph
+  def __init__(self):
+    """A graph has a list of vertices and a adjacency matrix"""
+    self.vertices = []
+    self.adj_mat = []
+
+  
   def has_vertex(self, label):
-    nVert = len(self.Vertices)
-    for i in range (nVert):
-      if (label == (self.Vertices[i]).get_label()):
+    """Check if a vertex is already in the graph"""
+    for i in range (len(self.vertices)):
+      if label == (self.vertices[i]).get_label():
         return True
     return False
 
-  # given the label get the index of a vertex
+
   def get_index(self, label):
-    nVert = len(self.Vertices)
-    for i in range(nVert):
-      if (label == (self.Vertices[i]).get_label()):
+    """Given the label get the index of a vertex"""
+    for i in range(len(self.vertices)):
+      if label == (self.vertices[i]).get_label():
         return i
     return -1
 
-  # add a Vertex with a given label to the graph
+
   def add_vertex(self, label):
-    if (self.has_vertex(label)):
+    """Add a Vertex with a given label to the graph"""
+    if self.has_vertex(label):
       return
 
     # add vertex to the list of vertices
-    self.Vertices.append(Vertex(label))
+    self.vertices.append(Vertex(label))
 
     # add a new column in the adjacency matrix
-    nVert = len(self.Vertices)
+    nVert = len(self.vertices)
     for i in range(nVert - 1):
-      (self.adjMat[i]).append(0)
+      (self.adj_mat[i]).append(0)
 
     # add a new row for the new vertex
     new_row = []
-    for i in range (nVert):
+    for i in range(nVert):
       new_row.append(0)
-    self.adjMat.append(new_row)
+    self.adj_mat.append(new_row)
 
-  # add weighted directed edge to graph
+  
   def add_directed_edge(self, start, finish, weight = 1):
-    self.adjMat[start][finish] = weight
+    """Add weighted directed edge to graph"""
+    self.adj_mat[start][finish] = weight
 
-  # add weighted undirected edge to graph
   def add_undirected_edge(self, start, finish, weight = 1):
-    self.adjMat[start][finish] = weight
-    self.adjMat[finish][start] = weight
+    """Add weighted undirected edge to graph"""
+    self.adj_mat[start][finish] = weight
+    self.adj_mat[finish][start] = weight
 
-  # return an unvisited vertex adjacent to vertex v (index)
   def get_adj_unvisited_vertex(self, v):
-    nVert = len (self.Vertices)
+    """Return an unvisited vertex adjacent to vertex v (index)"""
+    nVert = len (self.vertices)
     for i in range (nVert):
-      if (self.adjMat[v][i] > 0) and (not (self.Vertices[i]).was_visited()):
+      if (self.adj_mat[v][i] > 0) and (not (self.vertices[i]).was_visited()):
         return i
     return -1
 
@@ -131,65 +141,60 @@ class Graph():
     A simple string representation of the graph in Adjancy Matrix. 
     '''
     tmp = "\nVerticies are: \n"
-    for vertex in self.Vertices:
+    for vertex in self.vertices:
       tmp += str(vertex) + str("\n")
     
     tmp += "Adjancy Matrix is: \n"
-    for i in range(len(self.adjMat)):
+    for i in range(len(self.adj_mat)):
       tmp +="\n"
-      tmp += str(self.adjMat[i])
+      tmp += str(self.adj_mat[i])
 
     tmp += "\n"
     return tmp
 
   ###########################################
+
+
   def dfs(self, v):
     '''
     Do a Depth First Search in a given Graph. 
     '''
+
     # create the Stack
-    theStack = Stack()
+    the_stack = Stack()
 
     # mark the vertex v as visited and push it on the Stack
-    (self.Vertices[v]).visited = True
+    (self.vertices[v]).visited = True
 
-    print(self.Vertices[v])
+    print(self.vertices[v])
     
 
-    theStack.push(v)
+    the_stack.push(v)
     time_counter = 1
     
-
-
     finish_times = dict()
     finish_times[v] = time_counter
 
 
     # visit all the other vertices according to depth
-    while(not theStack.is_empty()):
+    while(not the_stack.is_empty()):
       # get an adjacent unvisited vertex
-      u = self.get_adj_unvisited_vertex(theStack.peek())     
+      u = self.get_adj_unvisited_vertex(the_stack.peek())     
       time_counter += 1   
       
-
-     
-      if (u == -1):
-        u = theStack.pop()
+      if u == -1:
+        u = the_stack.pop()
         time_counter += 1
       else:
-        (self.Vertices[u]).visited = True
-        print(self.Vertices[u]) # output this vertext. 
+        (self.vertices[u]).visited = True
+        print(self.vertices[u]) # output this vertext. 
         # Add the finishing time for this vertex. 
         finish_times[u] = time_counter        
-        theStack.push(u)
+        the_stack.push(u)
     
-    # time_counter += 1
-      
-
     # the stack is empty, let us rest the flags
-    nVert = len(self.Vertices)
-    for i in range(nVert):
-      (self.Vertices[i]).visited = False
+    for i in range(len(self.vertices)):
+      (self.vertices[i]).visited = False
     
     print(finish_times)
 
@@ -216,14 +221,14 @@ class Graph():
       s = frontier.dequeue()
       
       # mark the vertex v as visited and push it on the Stack
-      (self.Vertices[s]).visited = True
-      print(self.Vertices[s])
+      (self.vertices[s]).visited = True
+      print(self.vertices[s])
 
-      next_nodes = [i for i, e in enumerate(self.adjMat[s]) if e != 0]
+      next_nodes = [i for i, e in enumerate(self.adj_mat[s]) if e != 0]
 
       for vertex in next_nodes:
-        if(not self.Vertices[vertex].visited):
-          (self.Vertices[vertex]).visited = True
+        if not self.vertices[vertex].visited:
+          (self.vertices[vertex]).visited = True
           frontier.enqueue(vertex)
           level[vertex]=level_counter
       
@@ -235,6 +240,7 @@ class Graph():
     
     
 def main():
+  """A main function to create a graph of cities."""
   # create the Graph object
   cities = Graph()
 
@@ -261,7 +267,7 @@ def main():
   print(cities)
 
   # # read each edge and place it in the adjacency matrix
-  for i in range (num_edges):
+  for i in range(num_edges):
     line = sys.stdin.readline()
     edge = line.strip()
     edge = edge.split()
