@@ -1,7 +1,13 @@
-
+"""
+Run 
+python3 example_009_1_graph.py < graph.txt 
+"""
 import sys
 
-class Stack (object):
+class Stack():
+  """ 
+  Stack implementation. 
+  """
   def __init__ (self):
     self.stack = []
 
@@ -26,7 +32,10 @@ class Stack (object):
     return (len (self.stack))
 
 
-class Queue (object):
+class Queue():
+  """
+  Queue implementation. 
+  """
   def __init__ (self):
     self.queue = []
 
@@ -47,7 +56,8 @@ class Queue (object):
     return (len (self.queue))
 
 
-class Vertex (object):
+class Vertex():
+  """A single Vertex in a Graph"""
   def __init__ (self, label):
     self.label = label
     self.visited = False
@@ -65,24 +75,27 @@ class Vertex (object):
     return str (self.label)
 
 
-class Graph (object):
+class Graph():
+  """A Graph class G(V, E) """
+
   def __init__ (self):
-    self.Vertices = []
-    self.adjMat = []
+    """A Graph has a list of vertices and a adjacency matrix """
+    self.vertices = []
+    self.adj_mat = []
 
   # check if a vertex is already in the graph
   def has_vertex (self, label):
-    nVert = len (self.Vertices)
+    nVert = len (self.vertices)
     for i in range (nVert):
-      if (label == (self.Vertices[i]).get_label()):
+      if (label == (self.vertices[i]).get_label()):
         return True
     return False
 
   # given the label get the index of a vertex
   def get_index (self, label):
-    nVert = len (self.Vertices)
+    nVert = len (self.vertices)
     for i in range (nVert):
-      if (label == (self.Vertices[i]).get_label()):
+      if (label == (self.vertices[i]).get_label()):
         return i
     return -1
 
@@ -92,33 +105,33 @@ class Graph (object):
       return
 
     # add vertex to the list of vertices
-    self.Vertices.append (Vertex (label))
+    self.vertices.append (Vertex (label))
 
     # add a new column in the adjacency matrix
-    nVert = len (self.Vertices)
+    nVert = len (self.vertices)
     for i in range (nVert - 1):
-      (self.adjMat[i]).append (0)
+      (self.adj_mat[i]).append (0)
 
     # add a new row for the new vertex
     new_row = []
     for i in range (nVert):
       new_row.append (0)
-    self.adjMat.append (new_row)
+    self.adj_mat.append (new_row)
 
   # add weighted directed edge to graph
   def add_directed_edge (self, start, finish, weight = 1):
-    self.adjMat[start][finish] = weight
+    self.adj_mat[start][finish] = weight
 
   # add weighted undirected edge to graph
   def add_undirected_edge (self, start, finish, weight = 1):
-    self.adjMat[start][finish] = weight
-    self.adjMat[finish][start] = weight
+    self.adj_mat[start][finish] = weight
+    self.adj_mat[finish][start] = weight
 
   # return an unvisited vertex adjacent to vertex v (index)
   def get_adj_unvisited_vertex (self, v):
-    nVert = len (self.Vertices)
+    nVert = len (self.vertices)
     for i in range (nVert):
-      if (self.adjMat[v][i] > 0) and (not (self.Vertices[i]).was_visited()):
+      if (self.adj_mat[v][i] > 0) and (not (self.vertices[i]).was_visited()):
         return i
     return -1
 
@@ -128,8 +141,8 @@ class Graph (object):
     theStack = Stack ()
 
     # mark the vertex v as visited and push it on the Stack
-    (self.Vertices[v]).visited = True
-    print (self.Vertices[v])
+    (self.vertices[v]).visited = True
+    print (self.vertices[v])
     theStack.push (v)
 
     # visit all the other vertices according to depth
@@ -139,14 +152,14 @@ class Graph (object):
       if (u == -1):
         u = theStack.pop()
       else:
-        (self.Vertices[u]).visited = True
-        print (self.Vertices[u])
+        (self.vertices[u]).visited = True
+        print (self.vertices[u])
         theStack.push (u)
 
     # the stack is empty, let us rest the flags
-    nVert = len (self.Vertices)
+    nVert = len (self.vertices)
     for i in range (nVert):
-      (self.Vertices[i]).visited = False
+      (self.vertices[i]).visited = False
 
   # do the breadth first search in a graph
   def bfs (self, v):
@@ -159,7 +172,7 @@ def main():
   # read the number of vertices
   line = sys.stdin.readline()
   line = line.strip()
-  num_vertices = int (line)
+  num_vertices = int(line)
 
   # read the vertices to the list of Vertices
   for i in range (num_vertices):
