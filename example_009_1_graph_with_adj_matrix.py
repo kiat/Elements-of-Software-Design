@@ -1,7 +1,7 @@
 
 import sys
 
-class Stack (object):
+class Stack ():
   def __init__ (self):
     self.stack = []
 
@@ -26,7 +26,7 @@ class Stack (object):
     return (len(self.stack))
 
 
-class Queue (object):
+class Queue():
   def __init__ (self):
     self.queue = []
 
@@ -47,7 +47,7 @@ class Queue (object):
     return (len (self.queue))
 
 
-class Vertex (object):
+class Vertex():
   def __init__ (self, label):
     self.label = label
     self.visited = False
@@ -65,7 +65,7 @@ class Vertex (object):
     return str(self.label)
 
 
-class Graph(object):
+class Graph():
   def __init__(self):
     self.Vertices = []
     self.adjMat = []
@@ -125,13 +125,13 @@ class Graph(object):
 
   def __str__(self):
     '''
-    A simple string representation of the graph in Adjancy Matrix. 
+    A simple string representation of the graph in adjacency Matrix. 
     '''
     tmp = "\nVerticies are: \n"
     for vertex in self.Vertices:
       tmp += str(vertex) + str("\n")
     
-    tmp += "Adjancy Matrix is: \n"
+    tmp += "adjacency Matrix is: \n"
     for i in range(len(self.adjMat)):
       tmp +="\n"
       tmp += str(self.adjMat[i])
@@ -145,25 +145,25 @@ class Graph(object):
     Do a Depth First Search in a given Graph. 
     '''
     # create the Stack
-    theStack = Stack()
+    the_stack = Stack()
 
     # mark the vertex v as visited and push it on the Stack
     (self.Vertices[v]).visited = True
 
     print(self.Vertices[v])
     
-    theStack.push(v)
+    the_stack.push(v)
 
     # visit all the other vertices according to depth
-    while(not theStack.is_empty()):
+    while(not the_stack.is_empty()):
       # get an adjacent unvisited vertex
-      u = self.get_adj_unvisited_vertex(theStack.peek())
+      u = self.get_adj_unvisited_vertex(the_stack.peek())
       if (u == -1):
-        u = theStack.pop()
+        u = the_stack.pop()
       else:
         (self.Vertices[u]).visited = True
         print (self.Vertices[u])
-        theStack.push(u)
+        the_stack.push(u)
 
     # the stack is empty, let us rest the flags
     nVert = len(self.Vertices)

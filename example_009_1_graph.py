@@ -138,23 +138,23 @@ class Graph():
   # do a depth first search in a graph
   def dfs (self, v):
     # create the Stack
-    theStack = Stack ()
+    the_stack = Stack()
 
     # mark the vertex v as visited and push it on the Stack
     (self.vertices[v]).visited = True
     print (self.vertices[v])
-    theStack.push (v)
+    the_stack.push (v)
 
     # visit all the other vertices according to depth
-    while (not theStack.is_empty()):
+    while (not the_stack.is_empty()):
       # get an adjacent unvisited vertex
-      u = self.get_adj_unvisited_vertex (theStack.peek())
+      u = self.get_adj_unvisited_vertex (the_stack.peek())
       if (u == -1):
-        u = theStack.pop()
+        u = the_stack.pop()
       else:
         (self.vertices[u]).visited = True
         print (self.vertices[u])
-        theStack.push (u)
+        the_stack.push (u)
 
     # the stack is empty, let us rest the flags
     nVert = len (self.vertices)
