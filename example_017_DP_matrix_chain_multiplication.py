@@ -25,7 +25,7 @@ def matrix_chain_recursive(p, i, j):
 
 def matrix_chain_with_memoization(p, n):
     '''
-    Calcualte the best minimum operation number of matrix multiplications 
+    Calculates the best minimum operation number of matrix multiplications 
     O(n^3)
     '''
     i = 1
