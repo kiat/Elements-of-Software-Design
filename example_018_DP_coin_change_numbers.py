@@ -8,7 +8,7 @@ import sys
 # https://algorithmist.com/wiki/Coin_change
 
 def coin_solution_recursive(coins, number_of_coins, amount):
-    # ''' Rcursive Top Down method  '''
+    # ''' Recursive Top Down method  '''
 	# check if the amount is zero, if yes, one solution, i.e., include no coin. 
 	if (amount == 0):
 		return 1
@@ -36,7 +36,7 @@ def coin_solution_with_memoization(coins, number_of_coins, amount):
         dp[0][i] = 1
 
 
-    # Interate over combinations and fill the dp table. 
+    # Iterative over combinations and fill the dp table. 
     # We start the amount from 1 and go to amount+1
     for i in range(1, amount + 1):
         for j in range(number_of_coins):                  
@@ -48,7 +48,7 @@ def coin_solution_with_memoization(coins, number_of_coins, amount):
             y = dp[i][j-1] if j >= 1 else 0 
                 
             
-            # caclucate the total count for this combination 
+            # Calculates the total count for this combination 
             dp[i][j] = x + y
     
     return dp[amount][number_of_coins - 1]
