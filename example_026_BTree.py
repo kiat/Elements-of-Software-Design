@@ -1,107 +1,150 @@
-# https://www.programiz.com/dsa/b-tree
-# Searching a key on a B-tree in Python
-
-
-# Create a node
 class BTreeNode:
-  def __init__(self, leaf=False):
-    self.leaf = leaf
-    self.keys = []
-    self.child = []
+    
+    def __init__(self, leaf=True):
+        # Constructor to initialize a B-Tree node
+        self.leaf = leaf  # Indicates if the node is a leaf
+        self.keys = []  # List to store keys
+        self.children = []  # List to store child nodes
 
 
-# Tree
 class BTree:
-  def __init__(self, t):
-    self.root = BTreeNode(True)
-    self.t = t
+    def __init__(self, t):
+        """
+        B-Tree constructor.
 
-    # Insert node
-  def insert(self, k):
-    root = self.root
-    if len(root.keys) == (2 * self.t) - 1:
-      temp = BTreeNode()
-      self.root = temp
-      temp.child.insert(0, root)
-      self.split_child(temp, 0)
-      self.insert_non_full(temp, k)
-    else:
-      self.insert_non_full(root, k)
+        Args:
+        - t: Order of the B-Tree
+        """
+        self.root = BTreeNode(True)  # Initializing the root node
+        self.t = t  # Order of the B-Tree
 
-    # Insert nonfull
-  def insert_non_full(self, x, k):
-    i = len(x.keys) - 1
-    if x.leaf:
-      x.keys.append((None, None))
-      while i >= 0 and k[0] < x.keys[i][0]:
-        x.keys[i + 1] = x.keys[i]
-        i -= 1
-      x.keys[i + 1] = k
-    else:
-      while i >= 0 and k[0] < x.keys[i][0]:
-        i -= 1
-      i += 1
-      if len(x.child[i].keys) == (2 * self.t) - 1:
-        self.split_child(x, i)
-        if k[0] > x.keys[i][0]:
-          i += 1
-      self.insert_non_full(x.child[i], k)
+        self.root = BTreeNode(True)
+        self.t = t
 
-    # Split the child
-  def split_child(self, x, i):
-    t = self.t
-    y = x.child[i]
-    z = BTreeNode(y.leaf)
-    x.child.insert(i + 1, z)
-    x.keys.insert(i, y.keys[t - 1])
-    z.keys = y.keys[t: (2 * t) - 1]
-    y.keys = y.keys[0: t - 1]
-    if not y.leaf:
-      z.child = y.child[t: 2 * t]
-      y.child = y.child[0: t - 1]
+    def insert(self, k):
+        """
+        Insert a key into the B-Tree.
 
-  # Print the tree
-  def print_tree(self, x, l=0):
-    print("Level ", l, " ", len(x.keys), end=":")
-    for i in x.keys:
-      print(i, end=" ")
-    print()
-    l += 1
-    if len(x.child) > 0:
-      for i in x.child:
-        self.print_tree(i, l)
+        Args:
+        - k: Key to insert
+        """
+        root = self.root
+        if len(root.keys) == (2 * self.t) - 1:
+            new_root = BTreeNode()
+            new_root.children.append(root)
+            self._split_child(new_root, 0)
+            self._insert_non_full(new_root, k)
+            self.root = new_root
+        else:
+            self._insert_non_full(root, k)
 
-  # Search key in the tree
-  def search_key(self, k, x=None):
-    if x is not None:
-      i = 0
-      while i < len(x.keys) and k > x.keys[i][0]:
-        i += 1
-      if i < len(x.keys) and k == x.keys[i][0]:
-        return (x, i)
-      elif x.leaf:
-        return None
-      else:
-        return self.search_key(k, x.child[i])
-      
-    else:
-      return self.search_key(k, self.root)
+    def _insert_non_full(self, node, k):
+        """
+        Insert into a non-full node.
 
+        Args:
+        - node: Current node in the B-Tree
+        - k: Key to insert
+        """
+        i = len(node.keys) - 1
+        if node.leaf:
+            node.keys.append(0)
+            while i >= 0 and k < node.keys[i]:
+                node.keys[i + 1] = node.keys[i]
+                i -= 1
+            node.keys[i + 1] = k
+        else:
+            while i >= 0 and k < node.keys[i]:
+                i -= 1
+            i += 1
+            if len(node.children[i].keys) == (2 * self.t) - 1:
+                self._split_child(node, i)
+                if k > node.keys[i]:
+                    i += 1
+            self._insert_non_full(node.children[i], k)
+
+    def _split_child(self, parent, i):
+        """
+        Split child node of a parent node.
+
+        Args:
+        - parent: Parent node
+        - i: Index of child node to split
+        """
+        t = self.t
+        child = parent.children[i]
+        new_child = BTreeNode(child.leaf)
+        parent.children.insert(i + 1, new_child)
+        parent.keys.insert(i, child.keys[t - 1])
+        new_child.keys = child.keys[t: (2 * t) - 1]
+        child.keys = child.keys[0: t - 1]
+        if not child.leaf:
+            new_child.children = child.children[t: 2 * t]
+            child.children = child.children[0: t - 1]
+
+    def search(self, k, node=None):
+        """
+        Search for a key in the B-Tree.
+
+        Args:
+        - k: Key to search
+        - node: Starting node for the search
+        """
+
+        if node is None:
+            node = self.root
+        i = 0
+        while i < len(node.keys) and k > node.keys[i]:
+            i += 1
+        if i < len(node.keys) and k == node.keys[i]:
+            return True
+        elif node.leaf:
+            return False
+        else:
+            return self.search(k, node.children[i])
+
+    def display(self, node=None, level=0):
+        """
+        Display the B-Tree structure.
+
+        Args:
+        - node: Node to start the display from (default is the root)
+        - level: Level of the node in the B-Tree (default is 0)
+        """
+
+        if node is None:
+            node = self.root
+
+        for i in range(len(node.keys)):
+            if not node.leaf:
+                self.display(node.children[i], level + 1)
+            print("Level", level, "Key", node.keys[i])
+
+        if not node.leaf:
+            self.display(node.children[len(node.keys)], level + 1)
 
 def main():
-  B = BTree(3)
+    # Create a B-Tree of order 3
+    b_tree = BTree(3)
 
-  for i in range(10):
-    B.insert((i, 2 * i))
+    # Keys to insert into the B-Tree
+    keys_to_insert = [10, 20, 5, 6, 12, 30, 7, 17]
 
-  B.print_tree(B.root)
+    # Insert keys into the B-Tree
+    for key in keys_to_insert:
+        b_tree.insert(key)
 
-  if B.search_key(8) is not None:
-    print("\nFound")
-  else:
-    print("\nNot Found")
+    # Display the B-Tree structure
+    print("B-Tree structure:")
+    b_tree.display()
+
+    # Key to search in the B-Tree
+    search_key = 6
+    if b_tree.search(search_key):
+        print(f"Key {search_key} found in the B-Tree")
+    else:
+        print(f"Key {search_key} not found in the B-Tree")
 
 
-if __name__ == '__main__':
-  main()
-
+if __name__ == "__main__":
+    main()
