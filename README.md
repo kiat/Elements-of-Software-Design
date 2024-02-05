@@ -27,6 +27,11 @@
 * [python cheat sheet](https://www.pythoncheatsheet.org/)
 
 
+## Online Python Run and Memory Visualization 
+ 
+ * https://pythontutor.com/
+ * https://trinket.io/ 
+
 ## Python Tutorials
 
 * [Official Python Tutorial](https://docs.python.org/3/tutorial/)
