@@ -36,7 +36,7 @@ def knapsack(values, weights, n, cap_weight):
   return dp, dp[n][cap_weight]
 
 
-# Here is the DP soplution Buttom-UP, Iterative using DP table
+# Here is the DP solution Bottom-UP, Iterative using DP table
 def knapsack_with_keep(values, weights, n, cap_weight):
   
   dp = [[0 for x in range(cap_weight+1)] for x in range(n+1)]
