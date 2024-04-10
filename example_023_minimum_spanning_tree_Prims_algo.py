@@ -1,51 +1,5 @@
 import sys
 
-class Stack (object):
-  def __init__ (self):
-    self.stack = []
-
-  # add an item to the top of the stack
-  def push(self, item):
-    self.stack.append (item)
-
-  # remove an item from the top of the stack
-  def pop(self):
-    return self.stack.pop()
-
-  # check the item on the top of the stack
-  def peek(self):
-    return self.stack[-1]
-
-  # check if the stack if empty
-  def is_empty(self):
-    return (len(self.stack) == 0)
-
-  # return the number of elements in the stack
-  def size (self):
-    return (len(self.stack))
-
-
-class Queue (object):
-  def __init__ (self):
-    self.queue = []
-
-  # add an item to the end of the queue
-  def enqueue(self, item):
-    self.queue.append(item)
-
-  # remove an item from the beginning of the queue
-  def dequeue(self):
-    return (self.queue.pop(0))
-
-  # check if the queue is empty
-  def is_empty(self):
-    return (len (self.queue) == 0)
-
-  # return the size of the queue
-  def size(self):
-    return (len (self.queue))
-
-
 class Vertex(object):
   def __init__ (self, label):
     self.label = label
