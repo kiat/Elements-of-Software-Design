@@ -99,7 +99,7 @@ class Graph(object):
     return tmp
 
   
-  def prims(self):
+  def prims_algorithm(self):
     
     # number of vertices in graph
     V = len(self.Vertices)
@@ -107,14 +107,14 @@ class Graph(object):
     
     # An Array to track of we select the specific vertex or not to be in the minimum spanning tree
     # selected will become true otherwise false
-    selected = [0] * V
+    selected = [False] * V
     
     # set number of edge to 0
     no_edge = 0
     
     # Select a node to start with it. 
     selected[0] = True
-    
+    edges = []
     # print for edge and weight
     print("Edge : Weight\n")
     while (no_edge < V - 1):
@@ -126,7 +126,7 @@ class Graph(object):
         # if the vertex is already in the set S, discard it otherwise
         # choose another vertex nearest to selected vertex at the past step 
         
-        minimum =  sys.maxsize
+        minimum = float('inf')
         x = 0
         y = 0
         for i in range(V):
@@ -138,13 +138,12 @@ class Graph(object):
                             minimum = self.adjMat[i][j]
                             x = i
                             y = j
-        print(str(x) + "-" + str(y) + ":" + str(self.adjMat[x][y]))
-
+        print(f"{x}-{y}: {self.adjMat[x][y]}")
+        edges.append((x,y))
         selected[y] = True
         no_edge += 1
 
-        return selected
-
+    return edges
 
    
 
@@ -172,7 +171,7 @@ def main():
   
 
   print(g1)
-  g1.prims()
+  g1.prims_algorithm()
 
 
 if __name__ == "__main__":
