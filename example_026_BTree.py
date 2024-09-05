@@ -17,10 +17,7 @@ class BTree:
         """
         self.root = BTreeNode(True)  # Initializing the root node
         self.t = t  # Order of the B-Tree
-
-        self.root = BTreeNode(True)
-        self.t = t
-
+        
     def insert(self, k):
         """
         Insert a key into the B-Tree.
