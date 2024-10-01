@@ -17,8 +17,7 @@ class TestStudent(unittest.TestCase):
 
         john = Student("John", "Doe", "01/01/1996", course_list1)
 
-        self.assertEqual(john.generate_email(
-            "utexas.edu"), "John.Doe@utexas.edu")
+        self.assertEqual(john.generate_email("utexas.edu"), "John.Doe@utexas.edu")
 
     def test_generate_email002(self):
         """Test generating an email with assertTrue."""
