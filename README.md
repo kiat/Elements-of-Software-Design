@@ -1,5 +1,7 @@
-# Elements-of-Software-Design
+# CS313E Elements-of-Software-Design
+This Repository includes a set of code examples for an introduction course about software development and design. 
 
+It contains topics from Comptuer Science Algoritim and Data Structure Courses. 
 
 
 
